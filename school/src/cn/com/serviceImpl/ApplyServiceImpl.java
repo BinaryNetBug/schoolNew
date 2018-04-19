@@ -1,10 +1,11 @@
-package cn.com.service;
+package cn.com.serviceImpl;
 
 import java.io.Serializable;
 import java.util.List;
 
 import cn.com.dao.ApplyDao;
 import cn.com.entity.Apply;
+import cn.com.service.ApplyService;
 
 public class ApplyServiceImpl implements ApplyService{
   private ApplyDao ApplyDao;
