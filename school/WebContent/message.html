@@ -71,7 +71,7 @@
 					<span><a href="">首页</a></span> >
 					<span class="body_right_navigation_now">在线报名</span>
 				</p>
-				<iframe id="body_right_content" width="100%" name="body_right_content"></iframe>
+				<iframe id="body_right_content" width="100%" name="body_right_content" onload="iframeLoad()"></iframe>
 			</div>
 			<div style="width: 1000px; background-color: #EAEAEA;padding: 15px 0; margin: 0;float: left;">
 				<p style="text-align: center;font-size: 12px; line-height: 25px;" >
@@ -87,4 +87,12 @@
 		</div>
     </div>
 </body>
+<script type="text/javascript">
+	function iframeLoad()  
+	{  
+		 var h = document.body.height;
+         document.getElementById("body_right_content").height = h + "px";
+         console.log(h);
+	} 
+</script>
 </html>
