@@ -1,0 +1,223 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+body{
+	background-image: url('../images/webbg.jpg');
+	background-repeat: no-repeat;
+	background-position: 0 200px;
+	background-color: #EBF5FE;
+}
+.body{
+	background-color: white;
+	width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.contact_us{
+	margin-left: 10px;
+}
+.contact_us ul li{
+	margin-top: 10px;
+	list-style: none;
+	width: 150px;
+	height: 35px;
+	line-height: 31px;
+}
+.contact_us ul a{
+	text-decoration: none;
+	color: white;
+}
+.contact_us_one{
+	background-image: url("../images/tel1.jpg");
+	padding-left:50px;
+}
+.contact_us_tow{
+	background-image: url("../images/tel2.jpg");
+	padding-left:50px;
+}
+.contact_us_three{
+	background-image: url("../images/qqbtn.jpg");
+	padding-left:50px;
+}
+.contact_us_four{
+	background-image: url("../images/lkbg.jpg");
+	text-align: center;
+	margin-bottom: 13px;
+}
+.body_left{
+	width: 219px;
+	height: 100%;
+	float: left;
+}
+.body_left_menu_title{
+	background-image: url('../images/l_tlebg.jpg');
+	line-height: 34px;
+	padding-left: 20px;
+	color: #0554B7;
+	font-weight: bold;
+	margin: 10px 0;
+}
+.body_left_menu_content{
+	display: block;
+	text-decoration: none;
+	color: #115E7D;
+	background-image: url('../images/rjlm_bg.jpg');
+	line-height: 26px;
+	padding-left: 20px;
+	margin-bottom: 5px;
+	font-size: 12px;
+}
+.body_left_menu_content:hover{
+	color: red;
+}
+.body_right{
+	float: left;
+	width: 741px;
+	height: 100px;
+	padding: 10px 20px;
+}
+.body_left_box{
+	background-color: #EAEAEA;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.body_left_box p{
+	margin-bottom: 10px;
+}
+.body_right_navigation{
+	color: #085AAC;
+	font-size: 12px;
+	border-bottom: 1px solid #CCCCCC;
+	line-height: 30px;
+}
+.body_right_navigation a{
+	text-decoration: none;
+	color: #085AAC;
+}
+
+.daohangul li,#lunbo li{
+    list-style: none;
+}
+.top{
+    width: 100%;
+    height:526px;
+    background:url(../images/topbg.jpg) no-repeat center 0px;
+}
+.logo{
+    width:1004px;
+    height:90px;
+    margin:0px auto;
+    padding:20px 0px 20px 0px;
+}
+.logoleft{
+    float: left;
+}
+.logoright{
+    float: right;
+}
+.daohang{
+    width:1004px;
+    height:40.8px;
+    margin:0px auto;
+    background:url(../images/navbg.jpg) repeat-x;
+}
+.daohang ul{
+    height:40.8px;
+
+}
+.daohang ul li{
+    width:108px;
+    height:40px;
+    background:url(../images/navge.jpg) no-repeat 0 0;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+   
+}
+.daohang .daohangul li:hover{
+    background:url(../images/navhover.jpg);
+    
+}
+.daohang .daohangul li >a:hover {
+    color:#D6CC00;
+}
+.daohang ul li a{
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.daohang ul li:nth-child(1){
+    background:none;
+}
+#lunbo{
+    width: 994px;
+    height: 350px;
+    margin:0px auto;
+    padding:5px 5px 0px 5px;
+    background:#fff;
+    position: relative;
+     overflow: hidden;
+}
+#lunbo ul li img
+{
+    height: 350px;
+    width: 994px;
+}
+.shownumber{
+    width: 15px;
+    height: 15px;
+    border-radius: 13px;
+    float:left;
+    background:#231F20;
+    margin-right: 8px;
+}
+.luoboimg {
+    height:350px;
+    position: absolute;
+}
+.lunbodaohang {
+    position: absolute;
+    left: 449px;
+    bottom: 15px;
+}
+.color{
+    background:#EFCC00;
+}
+ .imgOn{
+    display: inline;
+} 
+.notice{
+    width:964px;
+    height:28px;
+    margin:0px auto;
+    background:url(../images/noticebg.jpg) no-repeat;
+    padding:0px 20px 0px 20px;
+}
+.gonggao{
+    width:70px;
+    height:28px;
+    color: #0554b0;
+    font-weight: bold;
+    font-size:12px; 
+    line-height: 27px;
+    display:inline-block;
+    vertical-align: top;
+}
+.gonggao p{
+     display:inline-block;
+    text-align: initial;
+    white-space: nowrap;
+}
+.marquee{
+    height: 25px;
+    width: 860px;
+    font-size: 12px;
+    line-height: 25px;
+}
+.marquee a{
+    text-decoration:none;
+    color:red;
+}

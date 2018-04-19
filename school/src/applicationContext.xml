@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:aop="http://www.springframework.org/schema/aop" 
+		xmlns:context="http://www.springframework.org/schema/context" 
+		xmlns:tx="http://www.springframework.org/schema/tx" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd ">
+		<bean id="dataSourc" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+			<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+			<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test?characterEncoding=utf8"></property>
+			<property name="user" value="root"></property>
+			<property name="password" value="root"></property>
+		</bean>
+		<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+			<property name="dataSource" ref="dataSourc"></property>
+			<property name="hibernateProperties">
+				<props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+					<prop key="hibernate.show_sql">true</prop>
+				</props>
+			</property>
+			<property name="mappingLocations" value="classpath:cn/com/entity/*.hbm.xml"></property>
+		</bean>
+		<bean id="userDao" class="cn.com.daoImpl.UserDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<bean id="userService" class="cn.com.serviceImpl.UserServiceImpl">
+			<property name="userdao" ref="userDao"></property>
+		</bean>
+		
+		<bean id="txManage" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<tx:advice id="txAdvice" transaction-manager="txManage">
+			<tx:attributes>
+				<tx:method name="insert*" propagation="REQUIRED"/>
+				<tx:method name="update*" propagation="REQUIRED"/>
+				<tx:method name="delete*" propagation="REQUIRED"/>
+				<tx:method name="select*" read-only="true"/>
+				<tx:method name="login*" read-only="true"/>
+			</tx:attributes>
+		</tx:advice>
+		
+		<aop:config>
+			<aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.com.service.*.*(..))"/>
+		</aop:config>
+</beans>

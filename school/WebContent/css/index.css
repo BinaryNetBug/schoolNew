@@ -1,0 +1,352 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+body{
+	width: 100%;
+	background-image: url('../images/webbg.jpg');
+	background-repeat: no-repeat;
+	background-position: 0 200px;
+	background-color: #EBF5FE;
+}
+.body{
+	background-color: white;
+	width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.body_general_title,.body_job_title,#pone{
+	line-height: 25px;
+	background-image: url('../images/boxtlebg2.jpg');
+	font-size: 14px;
+	font-weight: bold;
+	font-family: "Arial";
+	color: #00508D;
+}
+.body_general,.body_job,.body_news,.body_major{
+	margin-top: 10px;
+}
+.body_title_more{
+	text-decoration: none;
+	color: #3A6C7D;
+	font-weight: normal;
+	float: right;
+}
+.title_right{
+	display: inline-block;
+	width: 35px;
+	height: 25px;
+	background-image: url('../images/box_tle_ico.jpg');
+}
+.title_left{
+	display: inline-block;
+	width: 15px;
+	height: 25px;
+	background-image: url('../images/box_tle_more_bg.jpg');
+}
+.body_general,.body_job,#foot-left{
+	width: 246px;
+}
+.body_general_content,.body_job_content,.foot_left_content{
+	border: 1px solid #C2D8E3;
+	width: 234px;
+	padding: 5px;
+}
+.body_general_content{
+	height: 180px;
+}
+.body_job_content{
+	height: 260px;
+}
+.body_job_flash{
+	height: 120px;
+	background-color: #f4f3f3;
+}
+.body_left,.body_center,.body_right,#foot_left,#foot,.body_news_flash,.body_news_content_article,#foot-right{
+	float:left;
+}
+.body_center,.body_right,#foot,#foot-right{
+	margin-left:15px;
+}
+.body_news_content,.body_major_content,.foot_content{
+	border: 1px solid #C2D8E3;
+	width: 468px;
+	padding: 5px;
+	overflow: hidden;
+}
+.body_news_title,.body_major_title,#ptwo,.foot_title{
+	line-height: 25px;
+	background-image: url('../images/boxtlebg2.jpg');
+	font-size: 14px;
+	font-weight: bold;
+	font-family: "Arial";
+	color: #00508D;
+}
+.body_news_title_title,.body_major_title_title{
+	background-image: url('../images/box2_tle_ico.jpg');
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	padding-left: 20px;
+}
+.body_news_flash{
+	height: 200px;
+	width:200px;
+	background-color: #f4f3f3;
+}
+.body_major_content{
+	height: 240px;
+}
+.body_major_content_article{
+	width: 466px;
+	overflow: hidden;
+}
+.body_major_content_article ul{
+	width: 1800px;
+}
+.body_major_content_article ul li{
+	height: 250px;
+	width: 233px;
+	float: left;
+	list-style: none;
+}
+.body_guide{
+	margin-top: 10px;
+}
+.body_guide_title,#pthree{
+	line-height: 27px;
+	background-image: url('../images/boxtlebg3.jpg');
+	font-size: 14px;
+	font-weight: bold;
+	font-family: "Arial";
+	color: #00508D;
+}
+.body_guide_content,.foot_right_content{
+	width: 232px;
+	height: 280px;
+	border: 1px solid #C2D8E3;
+	padding: 5px;
+}
+.title_right2{
+	display: inline-block;
+	width: 11px;
+	height: 27px;
+	background-image: url('../images/box_tle_ico2.jpg');
+}
+.title_left2{
+	display: inline-block;
+	width: 16px;
+	height: 27px;
+	background-image: url('../images/box_tle_more_bg2.jpg');
+}
+/*联系我们*/
+.contact_us{
+	border: 1px solid #C2D8E3;
+	padding: 0 20px;
+	background-color: #F3F6FB;
+}
+.contact_us ul li{
+	margin-top: 10px;
+	list-style: none;
+	width: 150px;
+	height: 35px;
+	line-height: 31px;
+}
+.contact_us ul a{
+	text-decoration: none;
+	color: white;
+}
+.contact_us_one{
+	background-image: url("../images/tel1.jpg");
+	padding-left:50px;
+}
+.contact_us_tow{
+	background-image: url("../images/tel2.jpg");
+	padding-left:50px;
+}
+.contact_us_three{
+	background-image: url("../images/qqbtn.jpg");
+	padding-left:50px;
+}
+.contact_us_four{
+	background-image: url("../images/lkbg.jpg");
+	text-align: center;
+	margin-bottom: 13px;
+}
+#food-main{
+	width: 1000px;
+	margin: 0 auto;
+}
+.foot_left_content,.foot_content,.foot_right_content{
+	height: 200px;
+}
+.lis{
+	list-style: none;
+	float: left;
+	margin: 15px;
+	text-align: center;
+}
+.lis a{
+	text-decoration: none;
+	color: #115970;
+}
+.lis a:hover,.help_link a:hover{
+	color: red;
+}
+.lis img{ 
+	border:1px solid #BEBEBE;
+	padding: 3px;
+	height: 120px;
+	width:150px;
+}
+.div{
+	width: 1000px;
+	overflow: hidden;
+}
+.foot_foot{
+	margin-top: 10px;
+}
+.float_right{
+	float: right;
+}
+.help_link{
+	line-height: 40px;
+	font-size: 12px;
+}
+.help_link a{
+	text-decoration: none;
+	color: #115970;
+	margin-left: 20px;
+}
+/*顶部css样式表*/
+.top{
+    width: 100%;
+    height:526px;
+    background:url(../images/topbg.jpg) no-repeat center 0px;
+}
+.logo{
+    width:1004px;
+    height:90px;
+    margin:0px auto;
+    /* border:1px solid red; */
+    padding:20px 0px 20px 0px;
+}
+.logoleft{
+    float: left;
+}
+.logoright{
+    float: right;
+}
+.daohang{
+    width:1004px;
+    height:40.8px;
+   /*  border:1px solid red; */
+    margin:0px auto;
+    background:url(../images/navbg.jpg) repeat-x;
+}
+.daohang ul{
+    height:40.8px;
+
+}
+.daohang ul li{
+    width:108px;
+    height:40px;
+    /* border:1px solid red; */
+    background:url(../images/navge.jpg) no-repeat 0 0;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+   
+}
+.daohang .daohangul li:hover{
+    background:url(../images/navhover.jpg);
+    
+}
+.daohang .daohangul li >a:hover {
+    color:#D6CC00;
+}
+.daohang ul li a{
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.daohang ul li:nth-child(1){
+    background:none;
+}
+#lunbo{
+    width: 994px;
+    height: 350px;
+    margin:0px auto;
+    padding:5px 5px 0px 5px;
+    /* border:1px solid red;  */
+    background:#fff;
+    position: relative;
+     overflow: hidden;
+}
+#lunbo ul li img
+{
+    height: 350px;
+    width: 994px;
+}
+.shownumber{
+    width: 15px;
+    height: 15px;
+    border-radius: 13px;
+    float:left;
+    background:#231F20;
+    margin-right: 8px;
+}
+.luoboimg {
+    height:350px;
+    position: absolute;
+}
+.lunbodaohang {
+    position: absolute;
+    left: 449px;
+    bottom: 15px;
+}
+.color{
+    background:#EFCC00;
+}
+ .imgOn{
+    display: inline;
+} 
+.notice{
+    width:964px;
+    height:28px;
+    /* border:1px solid red; */
+    margin:0px auto;
+    background:url(../images/noticebg.jpg) no-repeat;
+    padding:0px 20px 0px 20px;
+}
+.gonggao{
+    width:70px;
+    height:28px;
+    /* border:1px solid red; */
+    color: #0554b0;
+    font-weight: bold;
+    font-size:12px; 
+    line-height: 27px;
+    display:inline-block;
+    vertical-align: top;
+}
+.gonggao p{
+     display:inline-block;
+    text-align: initial;
+    white-space: nowrap;
+}
+.marquee{
+    height: 25px;
+    width: 860px;
+    font-size: 12px;
+    line-height: 25px;
+}
+.marquee a{
+    text-decoration:none;
+    color:red;
+}
+.daohangul li,#lunbo li{
+	list-style: none;
+}
