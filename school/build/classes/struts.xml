@@ -5,7 +5,7 @@
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
     <package name="de" extends="json-default">
-    	<action name="*" class="cn.com.action.UserAction" method="{1}">
+    	<action name="*" class="cn.com.action.TypeAction" method="{1}">
     		<result name="success" type="json"></result>
     		<result name="error">/error.jsp</result>
     	</action>

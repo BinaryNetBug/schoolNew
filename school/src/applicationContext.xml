@@ -28,12 +28,12 @@
 			</property>
 			<property name="mappingLocations" value="classpath:cn/com/entity/*.hbm.xml"></property>
 		</bean>
-		<bean id="userDao" class="cn.com.daoImpl.UserDaoImpl">
+		<bean id="typeDao" class="cn.com.daoImpl.TypeDaoImpl">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
 		
-		<bean id="userService" class="cn.com.serviceImpl.UserServiceImpl">
-			<property name="userdao" ref="userDao"></property>
+		<bean id="typeService" class="cn.com.serviceImpl.TypeServiceImpl">
+			<property name="dao" ref="typeDao"></property>
 		</bean>
 		
 		<bean id="txManage" class="org.springframework.orm.hibernate5.HibernateTransactionManager">

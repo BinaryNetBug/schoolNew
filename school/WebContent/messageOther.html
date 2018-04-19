@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>在线留言</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#main{
+		margin: auto;
+		overflow: hidden;
+	}
+	#right{
+		width: 800px;
+	}
+	#span{
+		color: #085AAC;
+		font-size: 12px;
+	}
+	#xian{
+		width: 800px;
+		height: 1px;
+		background-color: #CCCCCC;
+	}
+	#div{
+		margin-left:70px; 
+		text-align: center;
+		line-height: 30px;
+		width: 100px;
+		height: 30px;
+		background-color: #76A420;
+	}
+	#input{
+		display: hidden;
+		background-color: #76A420;
+	}
+	table{
+		margin-top: 40px;
+		margin-left: 70px;
+		font-size: 10px;
+		border-collapse:separate;
+		border-spacing:10px;  
+	}
+	.spans{
+		color: red;
+	}
+
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="right">
+			<form action="" onsubmit="return subm();">
+				<table>
+					<tr class="trs">
+						<td>昵称:</td>
+						<td><input type="text" class="inputs"><span class="spans">*</span></td>
+						<td></td>
+						<td>电话：</td>
+						<td><input type="text" class="inputs"><span class="spans">*</span></td>
+						<td></td>
+					</tr>
+					<tr class="trs">
+						<td>QQ：</td>
+						<td><input type="text"></td>	
+						<td></td>
+						<td>Email：</td>
+						<td><input type="text"></td>
+						<td></td>
+					</tr>
+					<tr class="trs">
+						<td>地址：</td>
+						<td><input type="text"></td>
+						<td></td>
+						<td>毕业学校：</td>
+						<td><input type="text"></td>
+						<td></td>
+					</tr>
+					<tr class="trs">
+						<td>留言：</td>
+						<td colspan="4" id="sele" style="text-align: left;">
+							<textarea rows="5" cols="60" ></textarea><span class="spans">*</span>
+						</td>
+					</tr>
+				</table>
+				<div id="div"><input type="submit"value="确认提交" id="input" ></div>
+			</form>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript">
+	var inps = document.getElementsByClassName("inputs");
+	var sele = document.getElementById("sele");
+	function subm() {
+
+		for (var i =0; i<inps.length;i++) {
+			if(inps[i].value=="") {
+				alert("为了您的信息完善，请将带红星号的选项填写完毕")
+				return false;
+			}
+		}
+		if (sele.value=="") {
+			alert("为了您的信息完善，请将带红星号的选项填写完毕")
+			return false;	
+		}
+	}
+	
+
+</script>
+</html>

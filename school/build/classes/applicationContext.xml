@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd ">
 		<bean id="dataSourc" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 			<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-			<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test?characterEncoding=utf8"></property>
+			<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/school?characterEncoding=utf8"></property>
 			<property name="user" value="root"></property>
 			<property name="password" value="root"></property>
 		</bean>
@@ -28,12 +28,12 @@
 			</property>
 			<property name="mappingLocations" value="classpath:cn/com/entity/*.hbm.xml"></property>
 		</bean>
-		<bean id="userDao" class="cn.com.daoImpl.UserDaoImpl">
+		<bean id="typeDao" class="cn.com.daoImpl.TypeDaoImpl">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
 		
-		<bean id="userService" class="cn.com.serviceImpl.UserServiceImpl">
-			<property name="userdao" ref="userDao"></property>
+		<bean id="typeService" class="cn.com.serviceImpl.TypeServiceImpl">
+			<property name="dao" ref="typeDao"></property>
 		</bean>
 		
 		<bean id="txManage" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
