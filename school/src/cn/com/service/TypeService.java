@@ -1,10 +1,10 @@
-package cn.com.dao;
+package cn.com.service;
 
 import java.util.List;
 
 import cn.com.entity.Type;
 
-public interface TypeDao {
+public interface TypeService {
 	public void insertType(Type type);
 	public void deleteType(Integer typeId);
 	public void updateType(Type type);
