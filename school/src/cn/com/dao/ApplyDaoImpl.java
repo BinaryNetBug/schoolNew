@@ -1,11 +1,10 @@
-package cn.com.daoImpl;
+package cn.com.dao;
 
 import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
-import cn.com.dao.ApplyDao;
 import cn.com.entity.Apply;
 
 public class ApplyDaoImpl extends HibernateDaoSupport implements ApplyDao{
