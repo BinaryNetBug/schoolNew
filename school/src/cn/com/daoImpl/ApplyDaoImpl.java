@@ -12,8 +12,7 @@ public class ApplyDaoImpl extends HibernateDaoSupport implements ApplyDao{
 
 	@Override
 	public void save(Apply apply) {
-	this.getHibernateTemplate().save(apply);
-		
+		this.getHibernateTemplate().save(apply);
 	}
 
 	@Override
@@ -23,14 +22,12 @@ public class ApplyDaoImpl extends HibernateDaoSupport implements ApplyDao{
 
 	@Override
 	public Apply findbyid(Serializable id) {
-		
 		return this.getHibernateTemplate().get(Apply.class, id);
 	}
 
 	@Override
 	public List<Apply> findall() {
-		
-		return (List<Apply>) this.getHibernateTemplate().find("form school", null);
+		return (List<Apply>) this.getHibernateTemplate().find("form Apply", null);
 	}
 
 }

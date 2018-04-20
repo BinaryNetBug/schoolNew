@@ -52,7 +52,7 @@
 
 	</style>
 </head>
-<body>
+<body onload="iframe()">
 	<div id="main">
 		<div id="right">
 			<form action="" onsubmit="return subm();">
@@ -111,6 +111,10 @@
 		}
 	}
 	
+	function iframe(){
+		var obj = parent.document.getElementById("body_right_content");
+		obj.height = this.document.body.scrollHeight;
+	}
 
 </script>
 </html>

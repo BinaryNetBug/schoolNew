@@ -11,8 +11,23 @@ public class Major implements Serializable {
 	
 	private Integer majorId;//专业id 主键
 	private String mName;//专业名称
+	private String mimage;//缩略图
 	private String article;//专业介绍
 	private String intro;//专业简介
+	
+	
+	/**
+	 * @return the mimage
+	 */
+	public String getMimage() {
+		return mimage;
+	}
+	/**
+	 * @param mimage the mimage to set
+	 */
+	public void setMimage(String mimage) {
+		this.mimage = mimage;
+	}
 	/**
 	 * @return the majorId
 	 */
@@ -61,16 +76,19 @@ public class Major implements Serializable {
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
+	
 	/**
 	 * @param majorId
 	 * @param mName
+	 * @param mimage
 	 * @param article
 	 * @param intro
 	 */
-	public Major(Integer majorId, String mName, String article, String intro) {
+	public Major(Integer majorId, String mName, String mimage, String article, String intro) {
 		super();
 		this.majorId = majorId;
 		this.mName = mName;
+		this.mimage = mimage;
 		this.article = article;
 		this.intro = intro;
 	}

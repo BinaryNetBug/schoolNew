@@ -28,6 +28,8 @@ public class Apply implements Serializable {
 	private Major major;//专业
 	private String nickName;//昵称
 	private String email;//电子邮件
+	
+	
 	/**
 	 * @return the applyId
 	 */

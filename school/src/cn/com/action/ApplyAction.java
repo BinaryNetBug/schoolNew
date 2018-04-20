@@ -1,6 +1,5 @@
 package cn.com.action;
 
-import java.io.Serializable;
 import java.util.List;
 
 import cn.com.entity.Apply;
@@ -29,8 +28,8 @@ public void setApplyList(List<Apply> applyList) {
 }
 
 	public String saveApply() {
-		this.applyService.addApply(apply);
-		this.applyList = this.applyService.findallApply();
+		this.applyService.insertApply(apply);
+		this.applyList = this.applyService.selectApply();
 		return "success";
 	}
 	public String delApply(){
@@ -38,11 +37,11 @@ public void setApplyList(List<Apply> applyList) {
 		return "success";
 	}
 	public String fbyApply(){
-		this.applyService.findbyApply(apply.getApplyId());
+		this.applyService.selectApply(apply.getApplyId());
 		return "success";
 	}
 	public String finApply(){
-		this.applyService.findallApply();
+		this.applyService.selectApply();
 		return "success";
 	}
 }

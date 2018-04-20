@@ -35,6 +35,13 @@
 		<bean id="typeService" class="cn.com.serviceImpl.TypeServiceImpl">
 			<property name="dao" ref="typeDao"></property>
 		</bean>
+		<bean id="applyDao" class="cn.com.daoImpl.ApplyDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<bean id="applyService" class="cn.com.serviceImpl.ApplyServiceImpl">
+			<property name="ApplyDao" ref="applyDao"></property>
+		</bean>
 		
 		<bean id="txManage" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 			<property name="sessionFactory" ref="sessionFactory"></property>

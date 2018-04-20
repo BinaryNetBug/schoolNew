@@ -5,21 +5,14 @@
 
 <hibernate-mapping>
 <!-- 说明表和类的关联关系 -->
-         <class name="cn.com.entity" table="school">
-             <!-- 逐渐生成策略 -->
+         <class name="cn.com.entity.Apply" table="school">
              <id name="applyId" column="applyId">
-             <!-- native本地生成，主要针对mysql,sqlserver提供的逐渐自增生成 
-               Assigned  用户指定
-               Sequence  序列自增  Oracle数据-->
                   <generator class="native"></generator>
              </id>
-             <!-- 设置表中字段和类中属性的关联关系，name指定类中属性名 column指定表中字段名 
-             type属性的类型    如果类中属性名和类名一致 则column可以不设置
-             hibernate会自动检测字段属性类型  所有type也可以不写 -->
              <property name="ID"></property>
              <property name="name"></property>
              <property name="sex"></property>
-             <property name="birthday"></property>
+             <property name="brithday"></property>
              <property name="nation"></property>
              <property name="education"></property>
              <property name="graduate"></property>
@@ -31,7 +24,7 @@
              <property name="qq"></property>
              <property name="postcode"></property>
              <property name="message"></property>
-             <property name="majorId"></property>
+             <many-to-one name="major" class="cn.com.entity.Major" column="majorId"></many-to-one>
              <property name="nickName"></property>
              <property name="email"></property>
          </class>

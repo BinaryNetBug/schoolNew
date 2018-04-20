@@ -76,6 +76,7 @@ body{
 	float: left;
 	width: 741px;
 	padding: 10px 20px;
+	overflow:hidden;
 }
 .body_left_box{
 	background-color: #EAEAEA;

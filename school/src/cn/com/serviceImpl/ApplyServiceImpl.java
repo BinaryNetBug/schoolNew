@@ -15,7 +15,7 @@ public class ApplyServiceImpl implements ApplyService{
 }
 
 	@Override
-	public void addApply(Apply apply) {
+	public void insertApply(Apply apply) {
 	this.ApplyDao.save(apply);
 		
 	}
@@ -27,13 +27,13 @@ public class ApplyServiceImpl implements ApplyService{
 	}
 
 	@Override
-	public Apply findbyApply(Serializable id) {
+	public Apply selectApply(Serializable id) {
 		
 		return this.ApplyDao.findbyid(id);
 	}
 
 	@Override
-	public List<Apply> findallApply() {
+	public List<Apply> selectApply() {
 		
 		return this.ApplyDao.findall();
 	}

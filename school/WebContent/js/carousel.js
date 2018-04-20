@@ -1,7 +1,13 @@
 $(function(){
-        var height = parseInt($(".body_right").css("height"))-parseInt($(".body_left_menu").css("height"))+"px";
-    console.log(height);
-    parseInt($(".body_left_box").css("height")) > parseInt(height) ? 0 : $(".body_left_box").css("height",height);
+	var def = $(".body_left_box").css("height");
+	$("#body_right_content").on("load",function(){
+		$(".body_left_box").css("height",def);
+		var height = parseInt($(".body_right").css("height"))-parseInt($(".body_left_menu").css("height"))+"px";
+		console.log("height:"+height);
+		console.log($(".body_right").css("height")+"...");
+		parseInt($(".body_left_box").css("height")) > parseInt(height) ? 0 : $(".body_left_box").css("height",height);
+		console.log($(".body_left_box").css("height"))
+	});
 
     var  lunbo= $("#lunbo");//获取最外层框架
         showNumber = lunbo.find(".lunbodaohang li");//获取按钮
