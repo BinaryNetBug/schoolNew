@@ -51,44 +51,47 @@
 	}
 
 	</style>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 </head>
 <body onload="iframe()">
 	<div id="main">
 		<div id="right">
-			<form action="" onsubmit="return subm();">
+			<form onsubmit="return false;">
 				<table>
 					<tr class="trs">
 						<td>昵称:</td>
-						<td><input type="text" class="inputs"><span class="spans">*</span></td>
+						<td><input type="text" class="inputs" id="nickName"><span class="spans">*</span></td>
 						<td></td>
 						<td>电话：</td>
-						<td><input type="text" class="inputs"><span class="spans">*</span></td>
+						<td><input type="text" class="inputs" id="tel"><span class="spans">*</span></td>
 						<td></td>
 					</tr>
 					<tr class="trs">
 						<td>QQ：</td>
-						<td><input type="text"></td>	
+						<td><input type="text" id="qq"></td>	
 						<td></td>
 						<td>Email：</td>
-						<td><input type="text"></td>
+						<td><input type="text" id="email"></td>
 						<td></td>
 					</tr>
 					<tr class="trs">
 						<td>地址：</td>
-						<td><input type="text"></td>
+						<td><input type="text" id="address"></td>
 						<td></td>
 						<td>毕业学校：</td>
-						<td><input type="text"></td>
+						<td><input type="text" id="graduate"></td>
 						<td></td>
 					</tr>
 					<tr class="trs">
 						<td>留言：</td>
-						<td colspan="4" id="sele" style="text-align: left;">
-							<textarea rows="5" cols="60" ></textarea><span class="spans">*</span>
+						<td colspan="4" class="inputs" id="sele" style="text-align: left;">
+							<textarea rows="5" cols="60" id="message"></textarea><span class="spans">*</span>
 						</td>
 					</tr>
 				</table>
-				<div id="div"><input type="submit"value="确认提交" id="input" ></div>
+				<div id="div"><input type="submit" value="确认提交" id="input" >
+				<input type="reset" id="res" style="display: none"></div>
+				<div class="loading">您的留言将直接提交到网站管理员处，管理员会根据实际情况与你取得联系。请真实留言！</div>
 			</form>
 		</div>
 	</div>
@@ -96,21 +99,30 @@
 </body>
 <script type="text/javascript">
 	var inps = document.getElementsByClassName("inputs");
-	var sele = document.getElementById("sele");
-	function subm() {
-
+	$(document).ajaxStart(function(){  
+        $(".loading").html("loading...");  
+    });  
+	$("#input").click(function() {
 		for (var i =0; i<inps.length;i++) {
 			if(inps[i].value=="") {
 				alert("为了您的信息完善，请将带红星号的选项填写完毕")
 				return false;
 			}
 		}
-		if (sele.value=="") {
-			alert("为了您的信息完善，请将带红星号的选项填写完毕")
-			return false;	
-		}
-	}
-	
+		$.post("insertApply.action",{
+			"apply.nickName":$("#nickName").val(),
+			"apply.tel":$("#tel").val(),
+			"apply.qq":$("#qq").val(),
+			"apply.email":$("#email").val(),
+			"apply.address":$("#address").val(),
+			"apply.graduate":$("#graduate").val(),
+			"apply.message":$("#message").val(),
+			"apply.isMassage":"no"
+		},function(){
+			$("#res").click();
+			$(".loading").html("感谢您的留言，我们根据实际情况处理您的留言。<a href='' style='text-decoration: none'>继续留言</a>");
+		});
+	})
 	function iframe(){
 		var obj = parent.document.getElementById("body_right_content");
 		obj.height = this.document.body.scrollHeight;

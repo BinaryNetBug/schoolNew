@@ -28,8 +28,23 @@ public class Apply implements Serializable {
 	private Major major;//专业
 	private String nickName;//昵称
 	private String email;//电子邮件
+	private String isMassage;//判断是否是报名信息
 	
 	
+	
+	
+	/**
+	 * @return the isMassage
+	 */
+	public String getIsMassage() {
+		return isMassage;
+	}
+	/**
+	 * @param isMassage the isMassage to set
+	 */
+	public void setIsMassage(String isMassage) {
+		this.isMassage = isMassage;
+	}
 	/**
 	 * @return the applyId
 	 */

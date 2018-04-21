@@ -61,154 +61,157 @@
 </head>
 <body onload="iframe()">
 	<div id="main">
-		<div id="right">
-			<table id="tbl">
-				<tr>
-					<td class="first">选择专业：</td>
-					<td id="asd">
-						<select class="inputs" id="major"></select>
-						<select class="inputs">
-								<option value="初中起点">初中起点</option>
-								<option value="高中起点">高中起点</option>
-						</select>
-					</td>
-					<td id="tds">&nbsp;&nbsp;<span class="spans">*</span>
-						可初选专业，开学后课重选专业
-					</td>
-				</tr>
-				<tr>
-					<td class="first">学生姓名：</td>
-					<td>
-						<input type="text" class="inputs" id="name">
-					</td>
-					<td>&nbsp;&nbsp;<span class="spans">*</span>按户口本上的姓名为准</td>
-				</tr>
-				<tr>
-					<td class="first">性别：</td>
-					<td>
-						<select name="" id="" class="inputs" id="sex">
-							<option value="男">男</option>
-							<option value="女">女</option>
-						</select>
-					</td>
-					<td>&nbsp;&nbsp;<span class="spans">*</span></td>
-				</tr>
-				<tr>
-					<td class="first">出生日期：</td>
-					<td style="position:relative">
-						<select name="" id="year" class="inputs birthday" data-edit-select="1"  onmousedown="this.size=10" onblur="this.size=0" onchange="this.size=0"  style="position:absolute;top:5px;left:5px;z-index:1;">
-							<option value="">年</option>
-						</select>
-						<select name="" id="math" class="inputs birthday" data-edit-select="1"  onmousedown="this.size=10" onblur="this.size=0" onchange="this.size=0"  style="position:absolute;top:5px;left:60px;z-index:1;">
-							<option value="">月</option>
-						</select>
-						<select name="" id="day" class="inputs birthday" data-edit-select="1"  onmousedown="this.size=10" onblur="this.size=0" onchange="this.size=0"  style="position:absolute;top:5px;left:100px;z-index:1;">
-							<option value="">日</option>
-						</select>
-					</td>
-					<td>&nbsp;&nbsp;<span class="spans">*</span></td>
-				</tr>
-				<tr>
-					<td class="first">身份证号码：</td>
-					<td>
-						<input type="text" id="ID">
-					</td>
-					<td>&nbsp;&nbsp;如忘记，暂可不填</td>
-				</tr>
-				<tr>
-					<td class="first">民族：</td>
-					<td>
-						<input type="text" value="汉" class="inputs">
-					</td>
-					<td>&nbsp;&nbsp;<span class="spans">*</span></td>
-				</tr>
-				<tr>
-					<td class="first">现学历：</td>
-					<td>
-						<select name="" id="education" class="inputs">
-							<option value="">请选择</option>
-							<option value="初中">初中</option>
-							<option value="高中">高中</option>
-						</select>
-					</td>
-					<td>&nbsp;&nbsp;<span class="spans">*</span></td>
-				</tr>
-				<tr>
-					<td class="first">毕业院校：</td>
-					<td>
-						<input type="text" id="graduate">
-					</td>
-					<td>&nbsp;&nbsp;指原初、高中的学校名称</td>
-				</tr>
-				<tr>
-					<td class="first">身高：</td>
-					<td>
-						<input type="text" value="165" class="inputs" id="tall">
-					</td>
-					<td>&nbsp;&nbsp;<span class="spans">*</span>CM</td>
-				</tr>
-				<tr>
-					<td class="first">政治面貌：</td>
-					<td>
-						<select name="" id="politics">
-							<option value="">请选择</option>
-							<option value="群众">群众</option>
-							<option value="团员">团员</option>
-							<option value="预备党员">预备党员</option>
-							<option value="党员">党员</option>
-						</select>
-					</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="first">家庭住址：</td>
-					<td>
-						<input type="text" class="inputs" id="address">
-					</td>
-					<td>&nbsp;&nbsp;<span class="spans">*</span>学生收通知书的地址，请务必填写详细</td>
-				</tr>
-				<tr>
-					<td class="first">联系电话：</td>
-					<td>
-						<input type="text" class="inputs" id="tel">
-					</td>
-					<td>&nbsp;&nbsp;<span class="spans">*</span>请正确填写，便于联系</td>
-				</tr>
-				<tr>
-					<td class="first">联系QQ：</td>
-					<td>
-						<input type="text" id="qq">
-					</td>
-					<td>&nbsp;&nbsp;请正确输入，便于联系</td>
-				</tr>
-				<tr>
-					<td class="first">家庭电话：</td>
-					<td>
-						<input type="text" id="tel2">
-					</td>
-					<td>&nbsp;&nbsp;请正确输入，便于联系</td>
-				</tr>
-				<tr>
-					<td class="first">邮政编码：</td>
-					<td>
-						<input type="text" id="postcode">
-					</td>
-					<td>&nbsp;&nbsp;学校寄通知书用，请务必填写正确</td>
-				</tr>
-				<tr>
-					<td class="first">留言：</td>
-					<td colspan="2">
-						<textarea rows="8" cols="50" style="margin-top: 1px;margin-left:2px " id="message"></textarea>
-					</td>
-				</tr>
-			</table>
-			<div id="food">
-				<input type="submit" value="提交报名" id="sub">
+		<form onsubmit="return false;">
+			<div id="right">
+				<table id="tbl">
+					<tr>
+						<td class="first">选择专业：</td>
+						<td id="asd">
+							<select class="inputs" id="major"></select>
+							<select class="inputs">
+									<option value="初中起点">初中起点</option>
+									<option value="高中起点">高中起点</option>
+							</select>
+						</td>
+						<td id="tds">&nbsp;&nbsp;<span class="spans">*</span>
+							可初选专业，开学后课重选专业
+						</td>
+					</tr>
+					<tr>
+						<td class="first">学生姓名：</td>
+						<td>
+							<input type="text" class="inputs" id="name">
+						</td>
+						<td>&nbsp;&nbsp;<span class="spans">*</span>按户口本上的姓名为准</td>
+					</tr>
+					<tr>
+						<td class="first">性别：</td>
+						<td>
+							<select name="" id="" class="inputs" id="sex">
+								<option value="男">男</option>
+								<option value="女">女</option>
+							</select>
+						</td>
+						<td>&nbsp;&nbsp;<span class="spans">*</span></td>
+					</tr>
+					<tr>
+						<td class="first">出生日期：</td>
+						<td style="position:relative">
+							<select name="" id="year" class="inputs birthday" data-edit-select="1"  onmousedown="this.size=10" onblur="this.size=0" onchange="this.size=0"  style="position:absolute;top:5px;left:5px;z-index:1;">
+								<option value="">年</option>
+							</select>
+							<select name="" id="math" class="inputs birthday" data-edit-select="1"  onmousedown="this.size=10" onblur="this.size=0" onchange="this.size=0"  style="position:absolute;top:5px;left:60px;z-index:1;">
+								<option value="">月</option>
+							</select>
+							<select name="" id="day" class="inputs birthday" data-edit-select="1"  onmousedown="this.size=10" onblur="this.size=0" onchange="this.size=0"  style="position:absolute;top:5px;left:100px;z-index:1;">
+								<option value="">日</option>
+							</select>
+						</td>
+						<td>&nbsp;&nbsp;<span class="spans">*</span></td>
+					</tr>
+					<tr>
+						<td class="first">身份证号码：</td>
+						<td>
+							<input type="text" id="ID">
+						</td>
+						<td>&nbsp;&nbsp;如忘记，暂可不填</td>
+					</tr>
+					<tr>
+						<td class="first">民族：</td>
+						<td>
+							<input type="text" value="汉" class="inputs">
+						</td>
+						<td>&nbsp;&nbsp;<span class="spans">*</span></td>
+					</tr>
+					<tr>
+						<td class="first">现学历：</td>
+						<td>
+							<select name="" id="education" class="inputs">
+								<option value="">请选择</option>
+								<option value="初中">初中</option>
+								<option value="高中">高中</option>
+							</select>
+						</td>
+						<td>&nbsp;&nbsp;<span class="spans">*</span></td>
+					</tr>
+					<tr>
+						<td class="first">毕业院校：</td>
+						<td>
+							<input type="text" id="graduate">
+						</td>
+						<td>&nbsp;&nbsp;指原初、高中的学校名称</td>
+					</tr>
+					<tr>
+						<td class="first">身高：</td>
+						<td>
+							<input type="text" value="165" class="inputs" id="tall">
+						</td>
+						<td>&nbsp;&nbsp;<span class="spans">*</span>CM</td>
+					</tr>
+					<tr>
+						<td class="first">政治面貌：</td>
+						<td>
+							<select name="" id="politics">
+								<option value="">请选择</option>
+								<option value="群众">群众</option>
+								<option value="团员">团员</option>
+								<option value="预备党员">预备党员</option>
+								<option value="党员">党员</option>
+							</select>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first">家庭住址：</td>
+						<td>
+							<input type="text" class="inputs" id="address">
+						</td>
+						<td>&nbsp;&nbsp;<span class="spans">*</span>学生收通知书的地址，请务必填写详细</td>
+					</tr>
+					<tr>
+						<td class="first">联系电话：</td>
+						<td>
+							<input type="text" class="inputs" id="tel">
+						</td>
+						<td>&nbsp;&nbsp;<span class="spans">*</span>请正确填写，便于联系</td>
+					</tr>
+					<tr>
+						<td class="first">联系QQ：</td>
+						<td>
+							<input type="text" id="qq">
+						</td>
+						<td>&nbsp;&nbsp;请正确输入，便于联系</td>
+					</tr>
+					<tr>
+						<td class="first">家庭电话：</td>
+						<td>
+							<input type="text" id="tel2">
+						</td>
+						<td>&nbsp;&nbsp;请正确输入，便于联系</td>
+					</tr>
+					<tr>
+						<td class="first">邮政编码：</td>
+						<td>
+							<input type="text" id="postcode">
+						</td>
+						<td>&nbsp;&nbsp;学校寄通知书用，请务必填写正确</td>
+					</tr>
+					<tr>
+						<td class="first">留言：</td>
+						<td colspan="2">
+							<textarea rows="8" cols="50" style="margin-top: 1px;margin-left:2px " id="message"></textarea>
+						</td>
+					</tr>
+				</table>
+				<div id="food">
+					<input type="submit" value="提交报名" id="sub">
+					<input type="reset" id="res" style="display: none">
+				</div>
+				<div class="loading">
+					
+				</div>
 			</div>
-			<div class="loading">
-				
-			</div>
-		</div>
+		</form>
 	</div>
 </body>
 <script type="text/javascript">
@@ -279,6 +282,7 @@
 						"apply.message":$("#message").val()
 					},
 					seccess:function(){
+						$("#res").click();
 						alert("网上报名申请成功，我们会在2个工作日内与您取得联系，感谢您对我们的支持！");
 						$(".loading").text("网上报名申请成功，我们会在2个工作日内与您取得联系，感谢您对我们的支持！"); 
 					}
