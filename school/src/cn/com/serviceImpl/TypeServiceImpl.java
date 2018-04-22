@@ -1,5 +1,6 @@
 package cn.com.serviceImpl;
 
+import java.io.Serializable;
 import java.util.List;
 
 import cn.com.dao.TypeDao;
@@ -7,28 +8,45 @@ import cn.com.entity.Type;
 import cn.com.service.TypeService;
 
 public class TypeServiceImpl implements TypeService {
-	private TypeDao dao;
-	public void setDao(TypeDao dao) {
-		this.dao = dao;
+	private TypeDao typeDao;
+	
+	
+	/**
+	 * @param typeDao the typeDao to set
+	 */
+	public void setTypeDao(TypeDao typeDao) {
+		this.typeDao = typeDao;
 	}
+
 	@Override
 	public void insertType(Type type) {
-		this.dao.insertType(type);
+		this.typeDao.insertType(type);
 	}
+
 	@Override
-	public void deleteType(Integer typeId) {
-		this.dao.deleteType(typeId);
+	public void deleteType(Serializable typeId) {
+		// TODO Auto-generated method stub
+		this.typeDao.deleteType(typeId);
+
 	}
+
 	@Override
 	public void updateType(Type type) {
-		this.dao.updateType(type);
+		// TODO Auto-generated method stub
+		this.typeDao.updateType(type);
+
 	}
+
 	@Override
 	public List<Type> selectType() {
-		return this.dao.selectType();
+		// TODO Auto-generated method stub
+		return this.typeDao.selectType();
 	}
+
 	@Override
-	public Type selectType(Integer typeId) {
-		return this.dao.selectType(typeId);
+	public Type selectType(Serializable typeId) {
+		// TODO Auto-generated method stub
+		return this.typeDao.selectType(typeId);
 	}
+
 }

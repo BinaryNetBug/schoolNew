@@ -27,17 +27,13 @@
 		height: 1px;
 		background-color: #CCCCCC;
 	}
-	#div{
-		margin-left:70px; 
-		text-align: center;
-		line-height: 30px;
+	#input{
 		width: 100px;
 		height: 30px;
 		background-color: #76A420;
-	}
-	#input{
-		display: hidden;
-		background-color: #76A420;
+		border: 0;
+		color: white;
+		outline: 0;
 	}
 	table{
 		margin-top: 40px;
@@ -49,7 +45,17 @@
 	.spans{
 		color: red;
 	}
-
+	.loading{
+		color: #B25617;
+		font-size: 14px;
+		padding-left: 120px;
+	}
+	.trs_name{
+		text-align: right;
+	}
+	.trs_inp{
+		width: 150px;
+	}
 	</style>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 </head>
@@ -59,38 +65,37 @@
 			<form onsubmit="return false;">
 				<table>
 					<tr class="trs">
-						<td>昵称:</td>
-						<td><input type="text" class="inputs" id="nickName"><span class="spans">*</span></td>
-						<td></td>
-						<td>电话：</td>
-						<td><input type="text" class="inputs" id="tel"><span class="spans">*</span></td>
-						<td></td>
+						<td class="trs_name">昵称:</td>
+						<td><input type="text" class="inputs trs_inp" id="nickName"><span class="spans">*</span></td>
+						<td class="trs_name">电话：</td>
+						<td><input type="text" class="inputs trs_inp" id="tel"><span class="spans">*</span></td>
 					</tr>
 					<tr class="trs">
-						<td>QQ：</td>
-						<td><input type="text" id="qq"></td>	
-						<td></td>
-						<td>Email：</td>
-						<td><input type="text" id="email"></td>
-						<td></td>
+						<td class="trs_name">QQ：</td>
+						<td><input type="text" id="qq" class="trs_inp"></td>	
+						<td class="trs_name">Email：</td>
+						<td><input type="text" id="email" class="trs_inp"></td>
 					</tr>
 					<tr class="trs">
-						<td>地址：</td>
-						<td><input type="text" id="address"></td>
-						<td></td>
-						<td>毕业学校：</td>
-						<td><input type="text" id="graduate"></td>
-						<td></td>
+						<td class="trs_name">地址：</td>
+						<td><input type="text" id="address" class="trs_inp"></td>
+						<td class="trs_name">毕业学校：</td>
+						<td><input type="text" id="graduate" class="trs_inp"></td>
 					</tr>
 					<tr class="trs">
-						<td>留言：</td>
-						<td colspan="4" class="inputs" id="sele" style="text-align: left;">
-							<textarea rows="5" cols="60" id="message"></textarea><span class="spans">*</span>
+						<td class="trs_name">留言：</td>
+						<td colspan="3" class="inputs" id="sele" style="text-align: left;">
+							<textarea rows="5" cols="53" id="message"></textarea><span class="spans">*</span>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="3">
+							<input type="submit" value="确认提交" id="input" >
+							<input type="reset" id="res" style="display: none">
 						</td>
 					</tr>
 				</table>
-				<div id="div"><input type="submit" value="确认提交" id="input" >
-				<input type="reset" id="res" style="display: none"></div>
 				<div class="loading">您的留言将直接提交到网站管理员处，管理员会根据实际情况与你取得联系。请真实留言！</div>
 			</form>
 		</div>
@@ -117,7 +122,7 @@
 			"apply.address":$("#address").val(),
 			"apply.graduate":$("#graduate").val(),
 			"apply.message":$("#message").val(),
-			"apply.isMassage":"no"
+			"apply.isMassage":"yes"
 		},function(){
 			$("#res").click();
 			$(".loading").html("感谢您的留言，我们根据实际情况处理您的留言。<a href='' style='text-decoration: none'>继续留言</a>");

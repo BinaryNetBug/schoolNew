@@ -56,6 +56,11 @@
 	.spans{
 		color: red;
 	}
+	.loading{
+		margin-top:10px;
+		height:50px;
+		width:100%;
+	}
 	</style>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 </head>
@@ -208,7 +213,7 @@
 					<input type="reset" id="res" style="display: none">
 				</div>
 				<div class="loading">
-					
+					&nbsp;
 				</div>
 			</div>
 		</form>
@@ -221,21 +226,21 @@
 		for (var i =0; i<inputs.length;i++) {
 			console.log(inputs[i].value)
 			if(inputs[i].value=="") {
-				alert("为了您的信息完善，请将带红星号的选项填写完毕")
+				alert("为了您的信息完善，请将带星号的选项填写完毕")
 				return false;
 			}
 		}
 		return true;
 	}
 	//专业设置
-	//$.get("selectMajor.action",function(data){
-	//	var major = data.majorList;
-	//	var str = "<option value=''>请选择专业</option>";
-	//	for(var i = 0;i < major.length;i++){
-	//		str += '<option value="'+major[i].majorId+'">'+major[i].mName+'</option>';
-	//	}
-	//	$("#major").html(str);
-	//});
+	$.get("selectMajor.action",function(data){
+		var major = data.majorList;
+		var str = "<option value=''>请选择专业</option>";
+		for(var i = 0;i < major.length;i++){
+			str += '<option value="'+major[i].majorId+'">'+major[i].mName+'</option>';
+		}
+		$("#major").html(str);
+	}); 
 	for(var i = 2008;i > 1978;i--){
 		var str = "<option value='"+i+"'> "+i+"</option>"
 		$("#year").append(str);
@@ -250,7 +255,7 @@
 	}
 
 	$(document).ajaxStart(function(){  
-        $(".loading").text("loading...");  
+        $(".loading").html("<img src='images/loading.gif'>loading...");  
     });  
       
 	$("#sub").click(
@@ -261,13 +266,13 @@
 			}
 			if(subm()){
 				$.ajax({
-					url:"apply.action",
+					url:"insertApply.action",
 					type:"post",
 					data:{
 						"apply.major.majorId":$("#major").val(),
 						"apply.name":$("#name").val(),
 						"apply.sex":$("#sex").val(),
-						"apply.birthday":array.join("-"),
+						"apply.brithday":array.join("-"),
 						"apply.ID":$("#ID").val(),
 						"apply.nation":$("#nation").val(),
 						"apply.education":$("#education").val(),
@@ -279,9 +284,10 @@
 						"apply.tel":$("#tel").val(),
 						"apply.tel2":$("#tel2").val(),
 						"apply.postcode":$("#postcode").val(),
-						"apply.message":$("#message").val()
+						"apply.message":$("#message").val(),
+						"apply.isMassage":"no"
 					},
-					seccess:function(){
+					success:function(){
 						$("#res").click();
 						alert("网上报名申请成功，我们会在2个工作日内与您取得联系，感谢您对我们的支持！");
 						$(".loading").text("网上报名申请成功，我们会在2个工作日内与您取得联系，感谢您对我们的支持！"); 

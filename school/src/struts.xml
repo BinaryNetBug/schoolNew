@@ -5,9 +5,15 @@
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
     <package name="de" extends="json-default">
-    	<action name="*" class="cn.com.action.TypeAction" method="{1}">
+    	<action name="*Type" class="cn.com.action.TypeAction" method="{1}">
     		<result name="success" type="json"></result>
     		<result name="error">/error.jsp</result>
+    	</action>
+    	<action name="*Major" class="cn.com.action.MajorAction" method="{1}Major">
+    		<result name="success" type="json"></result>
+    	</action>
+    	<action name="*Apply" class="cn.com.action.ApplyAction" method="{1}Apply">
+    		<result name="success" type="json"></result>
     	</action>
     </package>
 </struts>

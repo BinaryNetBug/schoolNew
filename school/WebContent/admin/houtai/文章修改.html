@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+<body>
+    <form action="" method="post" enctype="multipart/form-data">
+    <table border="1px solid black">
+        <tr>    
+            <td><h1>文章修改</h1></td>
+            <td><input type="hidden" name="uid"/></td>
+        </tr>
+         <tr>
+            <td>标题</td>
+            <td><input type="text" name="title"></td>
+        </tr>
+        <tr>
+            <td>作者</td>
+            <td><input type="password" name="authour"></td>
+        </tr>
+        <tr>
+            <td>概要</td>
+            <td><input type="text" name="gen"></td>
+        </tr>
+        <tr>
+            <td>发布时间</td>
+            <td><input type="text" name="publishtime"></td>
+        </tr>
+        <tr>
+            <td>发布内容</td>
+            <td><textarea rows="10" cols="20" name="context"></textarea></td>
+        </tr>
+        <tr>
+            <td>图文结合</td>
+            <td><input type="file" name="images" value="" /></td>
+        </tr>
+         <tr>
+            <td colspan="2"><input type="submit" value="修改" /></td>
+        </tr>
+    </table>    
+    </form>
+</body>
+</html>

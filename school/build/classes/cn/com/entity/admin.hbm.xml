@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<!-- 说明表和类的关联关系 -->
+         <class name="cn.com.entity.Admin" table="admin">
+             <id name="adminId">
+                  <generator class="native"></generator>
+             </id>
+             <property name="adminName"></property>
+             <property name="password"></property>
+         </class>
+</hibernate-mapping>

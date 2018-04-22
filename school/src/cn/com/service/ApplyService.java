@@ -9,5 +9,5 @@ public interface ApplyService {
 	public void insertApply(Apply apply);
 	public void deleteApply(Serializable id);
 	public Apply selectApply(Serializable id);
-	public List<Apply> selectApply();
+	public List<Apply> selectApply(String isMessage);
 }

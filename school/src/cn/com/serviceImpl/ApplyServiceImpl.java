@@ -33,9 +33,11 @@ public class ApplyServiceImpl implements ApplyService{
 	}
 
 	@Override
-	public List<Apply> selectApply() {
-		
-		return this.ApplyDao.findall();
+	public List<Apply> selectApply(String isMessage) {
+		// TODO Auto-generated method stub
+		List<Apply> applyList = this.ApplyDao.findMessage(isMessage);
+		return applyList;
 	}
+
 
 }

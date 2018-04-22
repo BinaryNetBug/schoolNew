@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<!-- 说明表和类的关联关系 -->
+         <class name="cn.com.entity.Article" table="article">
+             <id name="articleId">
+                  <generator class="native"></generator>
+             </id>
+             <property name="title"></property>
+             <property name="author"></property>
+             <property name="time"></property>
+             <many-to-one name="type" class="cn.com.entity.Type" column="typeId"></many-to-one>
+             <property name="intro"></property>
+             <property name="image"></property>
+             <property name="context"></property>
+         </class>
+</hibernate-mapping>

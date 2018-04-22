@@ -1,0 +1,64 @@
+/* 
+* @Author: anchen
+* @Date:   2018-03-30 14:13:44
+* @Last Modified by:   anchen
+* @Last Modified time: 2018-03-30 16:15:38
+*/
+*{
+    padding: 0px;
+    margin:0px;
+}
+h1,li{
+    list-style: none;
+    cursor: pointer;
+}
+body{
+    background:#272822;
+}
+#header{
+    width: 1521px;
+    height: 60px;
+    border:1px solid red;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+}
+#body{
+    width:1521px;
+    height:1000px;
+    border:1px solid green;
+}
+.body-left{
+    width:200px;
+    height:100%;
+    display: inline-block;
+    border-right: 1px solid red;
+    color:white;
+}.body-right{
+    width:1315px;
+    height:100%;
+    /* background:red; */
+    vertical-align: top;
+    display:inline-block;
+}
+.body-left li{
+     width:100%;
+    height:30px;
+    border:1px solid black;
+    text-align: center;
+    line-height: 30px;
+}
+.body-left h1{
+    text-align: center;
+   font-size: 20px;
+   font-weight: bolder;
+   width:100%;
+    height:50px;
+    line-height:50px ;
+}
+.article,.user{
+    display:none;
+}
+.body-left h1{
+    border-bottom:1px solid white;
+}

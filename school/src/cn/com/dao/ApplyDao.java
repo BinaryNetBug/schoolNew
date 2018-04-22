@@ -10,5 +10,5 @@ public interface ApplyDao {
 	public void save(Apply apply);
 	public void delete(Serializable id);
 	public Apply  findbyid(Serializable id);
-	public List<Apply> findall();
+	public List<Apply> findMessage(String isMessage);
 }

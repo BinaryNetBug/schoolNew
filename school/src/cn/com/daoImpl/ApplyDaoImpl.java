@@ -24,10 +24,12 @@ public class ApplyDaoImpl extends HibernateDaoSupport implements ApplyDao{
 	public Apply findbyid(Serializable id) {
 		return this.getHibernateTemplate().get(Apply.class, id);
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Apply> findall() {
-		return (List<Apply>) this.getHibernateTemplate().find("form Apply", null);
+	public List<Apply> findMessage(String isMessage) {
+		List<Apply> applyList = (List<Apply>) this.getHibernateTemplate().find("from Apply where isMessage=?", isMessage);
+		return applyList.size()>0?applyList:null;
 	}
 
 }

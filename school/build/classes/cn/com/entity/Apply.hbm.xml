@@ -5,14 +5,14 @@
 
 <hibernate-mapping>
 <!-- 说明表和类的关联关系 -->
-         <class name="cn.com.entity.Apply" table="school">
+         <class name="cn.com.entity.Apply" table="apply">
              <id name="applyId" column="applyId">
                   <generator class="native"></generator>
              </id>
              <property name="ID"></property>
              <property name="name"></property>
              <property name="sex"></property>
-             <property name="brithday"></property>
+             <property name="brithday" column="birthday"></property>
              <property name="nation"></property>
              <property name="education"></property>
              <property name="graduate"></property>
@@ -24,9 +24,9 @@
              <property name="qq"></property>
              <property name="postcode"></property>
              <property name="message"></property>
-             <many-to-one name="major" class="cn.com.entity.Major" column="majorId"></many-to-one>
+             <many-to-one name="major" class="cn.com.entity.Major" column="majorId" lazy="false"></many-to-one>
              <property name="nickName"></property>
              <property name="email"></property>
-             <property name="isMassage"></property>
+             <property name="isMassage" column="isMessage"></property>
          </class>
 </hibernate-mapping>

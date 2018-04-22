@@ -342,6 +342,5 @@ public class Apply implements Serializable {
 				+ ", email=" + email + "]";
 	}
 	
-	
 
 }
