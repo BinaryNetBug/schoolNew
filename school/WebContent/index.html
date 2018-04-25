@@ -133,14 +133,14 @@
 							<a href=""  class="body_title_more">>>更多<span class="title_left">&nbsp;</span></a>
 						</p>
 						<div class="foot_left_content"></div>
-						<!-- <ul>
+						<ul>
 							<li class="li">成都最好的铁路学校，都有哪些热门专业</li>
 							<li class="li">成都铁路学校，包含哪些专业</li>
 							<li class="li">成铁路学院欢迎家长实地考察</li>
 							<li class="li">旅客乘车时不能携带哪些物品</li>
 							<li class="li">成都铁路运输学院提供专业指导</li>
 							<li class="li">四川铁路学院热门专业更受欢迎</li>
-						</ul> -->
+						</ul>
 					</div>
 					<div id="foot">
 						<p id="ptwo">
@@ -148,14 +148,14 @@
 							<a href="" class="body_title_more">>>更多<span class="title_left">&nbsp;</span></a>
 						</p>
 						<div class="foot_content"></div>
-						<!-- <ul>
+						<ul>
 							<li class="li">成都铁路专业学校让你拥有更加专业的技能</li>
 							<li class="li">成都铁路学校让你实现高铁人员的梦想</li>
 							<li class="li">中国高铁速度有多快</li>
 							<li class="li">成都铁路学校地址在哪里</li>
 							<li class="li">工学结合，实践出真知</li>
 							<li class="li">2017年选成都铁路运输学校</li>
-						</ul> -->
+						</ul>
 					</div>
 					<div id="foot-right">
 						<p id="pthree">
@@ -164,14 +164,14 @@
 							<a href="" class="body_title_more">>>更多<span class="title_left2">&nbsp;</span></a>
 						</p>
 						<div class="foot_right_content"></div>
-						<!-- <ul>
+						<ul>
 							<li class="li">9.贵校毕业生就业情况如何</li>
 							<li class="li">8.贵校的普生教育平台是什么</li>
 							<li class="li">7.除毕业证书外，贵校还有些什么证书</li>
 							<li class="li">6.贵校的“N+1”模式</li>
 							<li class="li">5.贵校有怎样的育人模式</li>
 							<li class="li">4.学校的管理如何</li>
-						</ul> -->
+						</ul>
 					</div>
 				</div>
 				<div class="foot_foot">
@@ -313,5 +313,21 @@
 	},function(){
 		time = setInterval(goleft,20);
 	});
+	
+	//学院概况
+	$.post("selectOneArticle.action",{"article.articleId":93},function(data){
+		$(".body_general_content").text(data.article.intro);
+	});
+	//新闻中心
+	$.post("selectTypeArticle.action",{"article.type.typeId":7},function(data){
+		var article = data.articleList;
+		console.log(data);
+		var str = "<ul>";
+		for(var i = 0;i < 6;i++){
+			str+="<li>"+article[i].title+"</li>"
+		}
+		str+="</ul>";
+		$(".body_news_content_article").html(str);
+	})
 </script>
 </html>

@@ -11,4 +11,5 @@ public interface ArticleService {
 	public void updateArticle(Article article);
 	public List<Article> selectArticle();
 	public Article selectArticle(Serializable articleId);
+	public List<Article> selectTypeArticle(Integer typeId);
 }

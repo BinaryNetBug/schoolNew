@@ -12,7 +12,7 @@
              <property name="title"></property>
              <property name="author"></property>
              <property name="time"></property>
-             <many-to-one name="type" class="cn.com.entity.Type" column="typeId"></many-to-one>
+             <many-to-one name="type" class="cn.com.entity.Type" column="typeId" cascade="save-update,persist" lazy="false"></many-to-one>
              <property name="intro"></property>
              <property name="image"></property>
              <property name="context"></property>

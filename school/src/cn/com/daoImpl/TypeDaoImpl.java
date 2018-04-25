@@ -30,6 +30,6 @@ public class TypeDaoImpl extends HibernateDaoSupport implements TypeDao{
 	}
 	@Override
 	public Type selectType(Serializable typeId) {
-		return (Type) this.getHibernateTemplate().find("from Type where typeId = ?", typeId);
+		return (Type) this.getHibernateTemplate().find("from Type where typeId = ?", typeId).get(0);
 	}
 }

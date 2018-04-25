@@ -35,14 +35,18 @@
 			<property name="typeDao" ref="typeDao"></property>
 		</bean>
 		
+		<bean id="articleDao" class="cn.com.daoImpl.ArticleDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="articleService" class="cn.com.serviceImpl.ArticleServiceImpl">
+			<property name="articleDao" ref="articleDao"></property>
+		</bean>
+		
 		<bean id="applyDao" class="cn.com.daoImpl.ApplyDaoImpl">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
 		<bean id="applyService" class="cn.com.serviceImpl.ApplyServiceImpl">
 			<property name="ApplyDao" ref="applyDao"></property>
-		</bean>
-		<bean id="applyAction" class="cn.com.action.ApplyAction">
-			<property name="applyService" ref="applyService"></property>
 		</bean>
 		
 		<bean id="majorDao" class="cn.com.daoImpl.MajorDaoImpl">
@@ -50,9 +54,6 @@
 		</bean>
 		<bean id="majorService" class="cn.com.serviceImpl.MajorServiceImpl">
 			<property name="majorDao" ref="majorDao"></property>
-		</bean>
-		<bean id="majorAction" class="cn.com.action.MajorAction">
-			<property name="majorService" ref="majorService"></property>
 		</bean>
 		
 		<bean id="txManage" class="org.springframework.orm.hibernate5.HibernateTransactionManager">

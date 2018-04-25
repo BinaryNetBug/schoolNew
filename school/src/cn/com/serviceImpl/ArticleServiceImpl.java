@@ -39,5 +39,9 @@ public class ArticleServiceImpl implements ArticleService {
 	public Article selectArticle(Serializable articleId) {
 		return this.articleDao.selectArticle(articleId);
 	}
+	@Override
+	public List<Article> selectTypeArticle(Integer typeId) {
+		return this.articleDao.selectArticle(typeId);
+	}
 
 }

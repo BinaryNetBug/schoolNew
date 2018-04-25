@@ -52,6 +52,10 @@ body{
 	border: 1px solid #C2D8E3;
 	width: 234px;
 	padding: 5px;
+	font-size: 12px;
+	line-height: 20px;
+	color: #4F6C8A;
+	overflow: hidden;
 }
 .body_general_content{
 	height: 180px;
@@ -349,4 +353,20 @@ body{
 }
 .daohangul li,#lunbo li{
 	list-style: none;
+}
+.body_news_content_article{
+	width: 260px;
+}
+
+.body_news_content_article ul li{
+	font-size: 12px;
+	/*display:inline-block;*/
+	width:260px;
+	color:#115970;
+	overflow: hidden;
+	list-style: square;
+}
+.body_news_content_article ul a{
+	color: #115970;
+	text-decoration: none;
 }

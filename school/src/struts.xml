@@ -5,7 +5,7 @@
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
     <package name="de" extends="json-default">
-    	<action name="*Type" class="cn.com.action.TypeAction" method="{1}">
+    	<action name="*Type" class="cn.com.action.TypeAction" method="{1}Type">
     		<result name="success" type="json"></result>
     		<result name="error">/error.jsp</result>
     	</action>
@@ -13,6 +13,9 @@
     		<result name="success" type="json"></result>
     	</action>
     	<action name="*Apply" class="cn.com.action.ApplyAction" method="{1}Apply">
+    		<result name="success" type="json"></result>
+    	</action>
+    	<action name="*Article" class="cn.com.action.ArticleAction" method="{1}Article">
     		<result name="success" type="json"></result>
     	</action>
     </package>

@@ -7,8 +7,8 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import cn.com.dao.AdminDao;
 import cn.com.entity.Admin;
 
-public class AdminDaoImpl extends HibernateDaoSupport implements AdminDao{
-
+public class AdminDaoImpl extends HibernateDaoSupport implements AdminDao
+{ 
 	@SuppressWarnings("unchecked")
 	@Override
 	public Admin login(Admin admin) {

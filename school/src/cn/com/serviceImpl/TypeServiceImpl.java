@@ -46,6 +46,7 @@ public class TypeServiceImpl implements TypeService {
 	@Override
 	public Type selectType(Serializable typeId) {
 		// TODO Auto-generated method stub
+		System.out.println(typeDao);
 		return this.typeDao.selectType(typeId);
 	}
 

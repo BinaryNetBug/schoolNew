@@ -29,13 +29,21 @@ public class ArticleDaoImpl extends HibernateDaoSupport implements ArticleDao {
 	public List<Article> selectArticle() {
 		@SuppressWarnings("unchecked")
 		List<Article> articleList = (List<Article>) this.getHibernateTemplate().find("from Article");
+		System.out.println(articleList);
 		return articleList.size()>0?articleList:null;
 	}
 
 	@Override
 	public Article selectArticle(Serializable articleId) {
-		Article article = (Article) this.getHibernateTemplate().find("from Article where articleId=?", articleId);
+		Article article = this.getHibernateTemplate().get(Article.class, articleId);
 		return article;
+	}
+
+	@Override
+	public List<Article> selectArticle(Integer typeId) {
+		@SuppressWarnings("unchecked")
+		List<Article> articleList = (List<Article>) this.getHibernateTemplate().find("from Article where typeId=?", typeId);
+		return articleList.size()>0?articleList:null;
 	}
 
 }

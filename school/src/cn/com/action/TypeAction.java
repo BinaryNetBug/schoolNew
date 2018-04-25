@@ -5,7 +5,7 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import cn.com.entity.Type;
-import cn.com.serviceImpl.TypeServiceImpl;
+import cn.com.service.TypeService;
 
 public class TypeAction extends ActionSupport{
 		/**
@@ -15,14 +15,14 @@ public class TypeAction extends ActionSupport{
 		private Type type;
 		private Boolean flag;
 		private List<Type> typeList;
-		private TypeServiceImpl service;
+		private TypeService typeService;
 		
 		
 		/**
-		 * @param service the service to set
+		 * @param typeService the typeService to set
 		 */
-		public void setService(TypeServiceImpl service) {
-			this.service = service;
+		public void setTypeService(TypeService typeService) {
+			this.typeService = typeService;
 		}
 		/**
 		 * @return the type
@@ -63,25 +63,26 @@ public class TypeAction extends ActionSupport{
 		
 		
 		public String insertType(){
-			this.service.insertType(type);
+			this.typeService.insertType(type);
 			return SUCCESS;
 		}
 		
 		public String updateType(){
-			this.service.updateType(type);
+			this.typeService.updateType(type);
 			return SUCCESS;
 		}
 		
 		public String deleteType(){
-			this.service.deleteType(this.type.getTypeId());
+			this.typeService.deleteType(this.type.getTypeId());
 			return SUCCESS;
 		}
 		public String selectType(){
-			this.typeList = this.service.selectType();
+			System.out.println(typeService);
+			this.typeList = this.typeService.selectType();
 			return SUCCESS;
 		}
 		public String selectTypeOne(){
-			this.type = this.service.selectType(this.type.getTypeId());
+			this.type = this.typeService.selectType(this.type.getTypeId());
 			return SUCCESS;
 		}
 }

@@ -32,7 +32,6 @@ public class Apply implements Serializable {
 	
 	
 	
-	
 	/**
 	 * @return the isMassage
 	 */
