@@ -18,5 +18,8 @@
     	<action name="*Article" class="cn.com.action.ArticleAction" method="{1}Article">
     		<result name="success" type="json"></result>
     	</action>
+    	<action name="*Admin" class="cn.com.action.AdminAction" method="{1}Admin">
+    		<result name="success" type="json"></result>
+    	</action>
     </package>
 </struts>

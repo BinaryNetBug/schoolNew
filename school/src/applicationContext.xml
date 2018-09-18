@@ -56,6 +56,13 @@
 			<property name="majorDao" ref="majorDao"></property>
 		</bean>
 		
+		<bean id="adminDao" class="cn.com.daoImpl.AdminDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="adminService" class="cn.com.serviceImpl.AdminServiceImpl">
+			<property name="adminDao" ref="adminDao"></property>
+		</bean>
+		
 		<bean id="txManage" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>

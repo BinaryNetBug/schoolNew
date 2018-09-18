@@ -3,8 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-
+	<table border="1">
+		
+	</table>
 </body>
+<script type="text/javascript">
+function articleList(){
+	$.ajax({
+		url:"selectMajor.action",
+		type:"post",
+		success:function(data) {
+			var majorList = data.majorList;
+			var str = "<tr><th>序号</th><th>专业名称</th><th>专业简介</th><th>专业缩略图</th><th>操作</th></tr>";
+			for(var i = 0;i < majorList.length;i++){
+				str+="<tr><td>"+(i+1)+"</td><td>"+majorList[i].mName+"</td><td>"+majorList[i].intro+"</td><td><img src='/school"+majorList[i].mimage+"' style='width:100px;'></td><td><a href='javascript:delet("+majorList[i].majorId+")'>删除</a> <a href='updateMajor.jsp?majorId="+majorList[i].majorId+"'>修改</a></td></tr>";
+			}
+			$("table").html(str);
+		}
+	});
+}
+	
+articleList();
+	function delet(id){
+		$.get("deleteMajor.action",{"major.majorId":id},function(data){
+			if(data.flag = 1){
+				alert("删除成功");
+				articleList();
+			}else{
+				alert("删除失败")
+			}
+		});
+	}
+</script>
 </html>

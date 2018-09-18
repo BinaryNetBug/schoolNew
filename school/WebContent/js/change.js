@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+$(function(){
+	if($("#type").val()!="null"){
+		$(".body_right_navigation_now").text($("#type").val());
+	}
+	$(".body_left_menu_content").click(function(){
+		$(".body_right_navigation_now").text(this.text);
+	});
+});

@@ -4,38 +4,78 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
-</head>
-<body>
-	<table border="1">
-		
-	</table>
-</body>
+<style type="text/css">
+	#type li{
+		cursor: pointer;
+		list-style:none;
+		float:left;
+		margin-right:20px;
+	}
+	#type{
+		overflow:hidden;
+		width:700px;
+	}
+	#type li:hover{
+		color: red;
+	}
+</style>
 <script type="text/javascript">
+function delet(id){
+	$.get("deleteArticle.action",{"article.articleId":id},function(data){
+		if(data.flag){
+			alert("删除成功");
+			articleList();
+		}else{
+			alert("删除失败")
+		}
+	});
+}
 function articleList(){
 	$.ajax({
 		url:"selectArticle.action",
 		type:"post",
 		success:function(data) {
 			var articleList = data.articleList;
-			var str = "<tr><th>文章标题</th><th>文章作者</th><th>发布时间</th><th>文章类型</th><th>文章缩略图</th><th>操作</th></tr>";
+			var str = "<tr><th>序号</th><th>文章标题</th><th>文章作者</th><th>发布时间</th><th>文章类型</th><th>文章缩略图</th><th>操作</th></tr>";
 			for(var i = 0;i < articleList.length;i++){
-				str+="<tr><td>"+articleList[i].title+"</td><td>"+articleList[i].author+"</td><td>"+articleList[i].time+"</td><td>"+articleList[i].type.typeName+"</td><td><img src='"+articleList[i].image+"'></td><td><a href='javascript:delet("+articleList[i].articleId+")'>删除</a> <a href='updateArticle.jsp?articleId="+articleList[i].articleId+"'>修改</a></td></tr>";
+				str+="<tr><td>"+(i+1)+"</td><td>"+articleList[i].title+"</td><td>"+articleList[i].author+"</td><td>"+articleList[i].time+"</td><td>"+articleList[i].type.typeName+"</td><td><img src='/school"+articleList[i].image+"' style='width:200px;'></td><td><a href='javascript:delet("+articleList[i].articleId+")'>删除</a> <a href='updateArticle.jsp?articleId="+articleList[i].articleId+"'>修改</a></td></tr>";
 			}
 			$("table").html(str);
 		}
 	});
 }
-	
-articleList();
-	function delet(id){
-		$.get("deleteArticle.action",{"article.articleId":id},function(data){
-			if(data.flag){
-				alert("删除成功");
-				articleList();
-			}else{
-				alert("删除失败")
-			}
+$(function(){
+	articleList();
+	$.get("selectType.action",function(data){
+		var typeList = data.typeList;
+		var str="<li id='selectAll'>查询全部</li>";
+		for(var i = 0;i < typeList.length;i++){
+			str+="<li><input type='hidden' value='"+typeList[i].typeId+"'>"+typeList[i].typeName+"</li>"
+		}
+		$("#type").html(str);
+		$("#type li").click(function(){
+			var typeId = $(this).find("input").val();
+			$.post("selectTypeArticle.action",{'article.type.typeId':typeId},function(data){
+				var articleList = data.articleList;
+				var str = "<tr><th>序号</th><th>文章标题</th><th>文章作者</th><th>发布时间</th><th>文章类型</th><th>文章缩略图</th><th>操作</th></tr>";
+				for(var i = 0;i < articleList.length;i++){
+					str+="<tr><td>"+(i+1)+"</td><td>"+articleList[i].title+"</td><td>"+articleList[i].author+"</td><td>"+articleList[i].time+"</td><td>"+articleList[i].type.typeName+"</td><td><img src='/school"+articleList[i].image+"' style='width:200px;'></td><td><a href='javascript:delet("+articleList[i].articleId+")'>删除</a> <a href='updateArticle.jsp?articleId="+articleList[i].articleId+"'>修改</a></td></tr>";
+				}
+				$("table").html(str);
+			});
 		});
-	}
+		$("#selectAll").click(function(){
+			articleList();
+		});
+	})
+});
 </script>
+</head>
+<body>
+	<ul id="type">
+	</ul>
+	<table border="1">
+		
+	</table>
+</body>
 </html>

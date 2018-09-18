@@ -16,7 +16,22 @@ public class MajorAction extends ActionSupport{
 	private int flag;
 	private Major major;
 	private MajorService majorService;
+	private String editorValue;
 	
+	
+	
+	/**
+	 * @return the editorValue
+	 */
+	public String getEditorValue() {
+		return editorValue;
+	}
+	/**
+	 * @param editorValue the editorValue to set
+	 */
+	public void setEditorValue(String editorValue) {
+		this.editorValue = editorValue;
+	}
 	/**
 	 * @param majorService the majorService to set
 	 */
@@ -61,14 +76,17 @@ public class MajorAction extends ActionSupport{
 	}
 	
 	public String insertMajor(){
+		this.major.setArticle(editorValue);
 		this.majorService.insertMajor(major);
 		return SUCCESS;
 	}
 	public String deleteMajor(){
 		this.majorService.deleteMajor(major.getMajorId());
+		this.flag = 1;
 		return SUCCESS;
 	}
 	public String updateMajor(){
+		major.setArticle(editorValue);
 		this.majorService.updateMajor(major);
 		return SUCCESS;
 	}
@@ -77,7 +95,9 @@ public class MajorAction extends ActionSupport{
 		return SUCCESS;
 	}
 	public String selectOneMajor(){
+		System.out.println(major.getMajorId());
 		this.major = this.majorService.selectMajor(this.major.getMajorId());
+		System.out.println(major);
 		return SUCCESS;
 	}
 }

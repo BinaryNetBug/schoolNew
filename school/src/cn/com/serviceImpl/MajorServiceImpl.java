@@ -40,6 +40,7 @@ public class MajorServiceImpl implements MajorService {
 
 	@Override
 	public Major selectMajor(Serializable majorId) {
+		System.out.println("service:"+this.majorDao.selectMajor(majorId));
 		return this.majorDao.selectMajor(majorId);
 	}
 

@@ -13,7 +13,8 @@ public class AdminDaoImpl extends HibernateDaoSupport implements AdminDao
 	@Override
 	public Admin login(Admin admin) {
 		// TODO Auto-generated method stub
-		List<Admin> adminList = (List<Admin>) this.getHibernateTemplate().find("from Admin where adminName=? and password=?", admin.getAdminName(),admin.getPassword());
+		String[] values = {admin.getAdminName(),admin.getPassword()};
+		List<Admin> adminList = (List<Admin>) this.getHibernateTemplate().find("from Admin where adminName = ? and password = ?",values);
 		return adminList.size()>0?adminList.get(0):null;
 	}
 

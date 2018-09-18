@@ -33,7 +33,8 @@ public class MajorDaoImpl extends HibernateDaoSupport implements MajorDao {
 
 	@Override
 	public Major selectMajor(Serializable majorId) {
-		return (Major) this.getHibernateTemplate().find("from Major where majorId=?", majorId);
+		System.out.println("Dao:"+this.getHibernateTemplate().get(Major.class, majorId));
+		return this.getHibernateTemplate().get(Major.class, majorId);
 	}
 
 }

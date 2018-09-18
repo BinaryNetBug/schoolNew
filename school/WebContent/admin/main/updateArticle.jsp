@@ -17,7 +17,7 @@
 		<p>类型：<select name="article.type.typeId" id="type">
 		</select></p>
 		<p>导读：<textarea name="article.intro" id="intro" cols="20" rows="5"></textarea></p>
-		<p>缩略图：<img src="" alt="未选择图片" id="image"><input type="file" style="display: none" id="upload"><input type="hidden" name="article.image" id="articleImage"></p>
+		<p>缩略图：<img src="" alt="未选择图片" id="image" style="width:200px;"><input type="file" style="display: none" id="upload"><input type="hidden" name="article.image" id="articleImage"></p>
 		<p>内容：<script id="editor" type="text/plain" style="width:830px;height:300px;"></script><input type="hidden" id="context" name="article.context"></p>
 		<p><input type="submit" value="修改文章"></p>
 	</form>
@@ -109,16 +109,18 @@ $(function() {
 			str += '<option value="'+type[i].typeId+'">'+type[i].typeName+'</option>';
 		}
 		$("#type").html(str);
+		$("#type").val(typeId);
 	}); 
-	
+	var typeId = null;
 	$.post("selectOneArticle.action",{"article.articleId":$("#articleId").val()},function(data){
 		var article = data.article;
 		console.log(article);
 		$("#title").val(article.title);
 		$("#author").val(article.author);
-		$("#type option[value='"+article.type.typeId+"']").attr("selected","selected");
+		$("#type").val(article.type.typeId);
+		typeId = article.type.typeId;
 		$("#intro").val(article.intro);
-		$("#image").attr("src",article.image);
+		$("#image").attr("src","/school"+article.image);
 		$("#articleImage").val(article.image);
 		ue.addListener("ready",function(){
 			ue.setContent(article.context);

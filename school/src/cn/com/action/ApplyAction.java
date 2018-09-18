@@ -15,7 +15,7 @@ public class ApplyAction extends ActionSupport{
 	private Apply apply;//封装表单数据 
 	private ApplyService applyService;//注入dao层的对象
 	private List<Apply> applyList;
-	private int flag;
+	private boolean flag = false;
 
 	/**
 	 * @param applyService the applyService to set
@@ -27,17 +27,17 @@ public class ApplyAction extends ActionSupport{
 	/**
 	 * @return the flag
 	 */
-	public int getFlag() {
+	public boolean isFlag() {
 		return flag;
 	}
-	
+
 	/**
 	 * @param flag the flag to set
 	 */
-	public void setFlag(int flag) {
+	public void setFlag(boolean flag) {
 		this.flag = flag;
 	}
-	
+
 	public Apply getApply() {
 		return apply;
 	}
@@ -60,6 +60,7 @@ public class ApplyAction extends ActionSupport{
 	}
 	public String deleteApply(){
 		this.applyService.deleteApply(apply.getApplyId());
+		this.flag = true;
 		return "success";
 	}
 	public String selectOneApply(){

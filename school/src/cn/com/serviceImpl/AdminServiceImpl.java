@@ -16,6 +16,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin login(Admin admin) {
+		System.out.println("进入service层");
 		return adminDao.login(admin);
 	}
 

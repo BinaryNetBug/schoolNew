@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片特效测试</title>
+</head>
+<body>
+<link rel='stylesheet' href='css/style.css' type='text/css' />
+<script type='text/javascript' src='js/jquery-1.4.2.min.js'></script>
+<script type='text/javascript' src='js/jquery.nivo.slider.pack.js'></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#slider').nivoSlider({
+		effect:'random',
+		slices:15,
+		animSpeed:500,
+		pauseTime:3000,
+		directionNav:true,
+		controlNav:true,
+		keyboardNav:true
+	});
+});
+</script>
+<div class="theme-default">
+	<div id="slider" class="nivoSlider">
+		<a href=""><img src="images/a1.jpg" width="230" height="135"/></a>
+		<a href=""><img src="images/a2.jpg" width="230" height="135"/></a>
+		<a href=""><img src="images/a3.jpg" width="230" height="135"/></a>
+		<a href=""><img src="images/a4.jpg" width="230" height="135"/></a>      	 
+	</div> 
+	<div id="war"></div>
+</div>
+<div style="text-align:center;clear:both">
+</div>
+</body>
+</html>

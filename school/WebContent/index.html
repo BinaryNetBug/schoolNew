@@ -2,10 +2,122 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>仿成都铁路运输学校_四川最好的高铁乘务职业学校-成都高铁专业招生网</title>
 	<link rel="stylesheet" href="css/index.css">
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/carousel.js"></script>
+	<link rel="stylesheet" href="css/float.css">
+	<script type="text/javascript" src="js/float.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		//下边无缝滚动
+		var num= 0;
+		function goleft(){
+			if (num<=-1880) {
+				num=0;
+			};
+			num-=1;
+			$("#ul").css("margin-left",num+"px");
+		}
+		var time = setInterval(goleft, 20)
+		$(".div").hover(function(){
+			clearInterval(time);
+		},function(){
+			time = setInterval(goleft,20);
+		});
+		
+		//学院概况
+		$.post("selectOneArticle.action",{"article.articleId":93},function(data){
+			$(".body_general_content").text(data.article.intro);
+		});
+		//新闻中心
+		$.post("selectTypeArticle.action",{"article.type.typeId":7},function(data){
+			var article = data.articleList;
+			var str = "<ul>";
+			for(var i = 0;i < 6;i++){
+				str+="<li><a href='news.jsp?articleId="+article[i].articleId+"'>"+article[i].title+"</a></li>"
+			}
+			str+="</ul>";
+			$(".body_news_content_article").html(str);
+		})
+		//铁路就业
+		$.post("selectTypeArticle.action",{"article.type.typeId":9},function(data){
+			var article = data.articleList;
+			var str = "<ul>";
+			for(var i = 0;i < 5;i++){
+				str+="<li><a href='job.jsp?articleId="+article[i].articleId+"'>"+article[i].title+"</a></li>"
+			}
+			str+="</ul>";
+			$(".body_job_content_article").html(str);
+		})
+		//招生简章
+		$.post("selectTypeArticle.action",{"article.type.typeId":14},function(data){
+			var article = data.articleList;
+			var str = "<ul>";
+			for(var i = 0;i < article.length;i++){
+				str+="<li><a href='recruit.jsp?articleId="+article[i].articleId+"'>"+article[i].title+"</a></li>"
+			}
+			str+="</ul>";
+			$(".body_guide_content").html(str);
+		})
+		//学习园地
+		$.post("selectTypeArticle.action",{"article.type.typeId":2},function(data){
+			var article = data.articleList;
+			var str = "<ul>";
+			for(var i = 0;i < 6;i++){
+				str+="<li><a href='culture.jsp?articleId="+article[i].articleId+"&type=学习园地'>"+article[i].title+"</a></li>"
+			}
+			str+="</ul>";
+			$(".foot_left_content").html(str);
+		})
+		//校园文化
+		$.post("selectTypeArticle.action",{"article.type.typeId":1},function(data){
+			var article = data.articleList;
+			var str = "<ul>";
+			for(var i = 0;i < 6;i++){
+				str+="<li><a href='culture.jsp?articleId="+article[i].articleId+"'>"+article[i].title+"</a></li>"
+			}
+			str+="</ul>";
+			$(".foot_content").html(str);
+		})
+		//招生问答
+		$.post("selectTypeArticle.action",{"article.type.typeId":15},function(data){
+			var article = data.articleList;
+			var str = "<ul>";
+			for(var i = 0;i < article.length;i++){
+				str+="<li><a href='recruit.jsp?articleId="+article[i].articleId+"&type=招生问答'>"+article[i].title+"</a></li>"
+			}
+			str+="</ul>";
+			$(".foot_right_content").html(str);
+		})
+		//专业设置
+		$.post("selectMajor.action",function(data){
+			console.log(data)
+			var major = data.majorList;
+			var str = "<ul>";
+			for(var i = 0;i < major.length;i++){
+				str+="<li><a href='major.jsp?majorId="+major[i].majorId+"&type=专业设置'><p><strong>"+major[i].mName+"</strong></p><div><img src='/school"+major[i].mimage+"' style='width:188px;height:120px;display:inline-block;'/></div><p>"+major[i].intro+"</p></a></li>"
+			}
+			for(var j = 0;j < 2;j++){
+				str+="<li><a href='major.jsp?majorId="+major[j].majorId+"&type=专业设置'><p><strong>"+major[j].mName+"</strong></p><div><img src='/school"+major[j].mimage+"' style='width:188px;height:120px;display:inline-block;'/></div><p>"+major[j].intro+"</p></a></li>"
+			}
+			
+			str+="</ul>";
+			$(".body_major_content_article").html(str);
+			var scrollNum = 0;
+			function scroll(){
+				scrollNum = scrollNum <= -(i*232)? 0 : scrollNum-1;
+				$(".body_major_content_article ul").css("margin-left",scrollNum+"px");
+			}
+			var time1 = setInterval(scroll,30);
+			$(".body_major_content_article").hover(function(){
+				clearInterval(time1);
+			},function(){
+				time1 = setInterval(scroll,30);
+			});
+		})
+	});
+</script>
 </head>
 <body>
 	<div class="top">
@@ -17,14 +129,14 @@
         <div class="daohang">
             <ul class="daohangul">
                 <li><a href="index.html">学校首页</a></li>
-                <li><a href="about.html">学校概况</a></li>
-                <li><a href="news.html">学校新闻</a></li>
-                <li><a href="major.html">专业设置</a></li>
-                <li><a href="job.html">招生就业</a></li>
-                <li><a href="culture.html">校园文化</a></li>
-                <li><a href="environment.html">校园环境</a></li>
-                <li><a href="message.html">报名留言</a></li>
-                <li><a href="callWe.html">联系我们</a></li>
+                <li><a href="about.html" target="_blank">学校概况</a></li>
+                <li><a href="news.jsp" target="_blank">学校新闻</a></li>
+                <li><a href="major.jsp" target="_blank">专业设置</a></li>
+                <li><a href="job.jsp" target="_blank">招生就业</a></li>
+                <li><a href="culture.jsp" target="_blank">校园文化</a></li>
+                <li><a href="environment.jsp" target="_blank">校园环境</a></li>
+                <li><a href="message.html" target="_blank">报名留言</a></li>
+                <li><a href="callWe.html" target="_blank">联系我们</a></li>
             </ul>
         </div>
 	    <div class="body">
@@ -52,7 +164,7 @@
 					<p class="body_general_title">
 						<span class="title_right">&nbsp;</span>
 						学院概况
-						<a href="" class="body_title_more">>>更多<span class="title_left">&nbsp;</span></a>
+						<a href="about.html" class="body_title_more" target="_blank">>>更多<span class="title_left">&nbsp;</span></a>
 					</p>
 					<div class="body_general_content"></div>
 				</div>
@@ -60,10 +172,15 @@
 					<p class="body_job_title">
 						<span class="title_right">&nbsp;</span>
 						铁路就业
-						<a href="" class="body_title_more">>>更多<span class="title_left">&nbsp;</span></a>
+						<a href="job.jsp" class="body_title_more" target="_blank">>>更多<span class="title_left">&nbsp;</span></a>
 					</p>
 					<div class="body_job_content">
-						<div class="body_job_flash"></div>
+						<div class="body_job_flash">
+							<iframe src="jobPicture/index.html" width="100%" scrolling="no" height="100%" frameborder="0"></iframe>
+						</div>
+						<div class="body_job_content_article">
+							测试数据
+						</div>
 					</div>
 				</div>
 			</div>
@@ -72,31 +189,23 @@
 				<div class="body_news">
 					<p class="body_news_title">
 						<span class="body_news_title_title">新闻中心</span>
-						<a href="" class="body_title_more">>>更多<span class="title_left">&nbsp;</span></a>
+						<a href="news.jsp" class="body_title_more" target="_blank">>>更多<span class="title_left">&nbsp;</span></a>
 					</p>
 					<div class="body_news_content">
-						<div class="body_news_flash"></div>
+						<div class="body_news_flash">
+							<iframe src="newsPicture/index.html" width="100%" scrolling="no" height="100%" frameborder="0"></iframe>
+						</div>
 						<div class="body_news_content_article">
-							测试数据
 						</div>
 					</div>
 				</div>
 				<div class="body_major">
 					<p class="body_major_title">
 						<span  class="body_major_title_title">专业设置</span>
-						<a href="" class="body_title_more">>>更多<span class="title_left">&nbsp;</span></a>
+						<a href="major.jsp" class="body_title_more" target="_blank">>>更多<span class="title_left">&nbsp;</span></a>
 					</p>
 					<div class="body_major_content">
 						<div class="body_major_content_article">
-							<ul>
-								<li>测试1</li>
-								<li>测试2</li>
-								<li>测试3</li>
-								<li>测试4</li>
-								<li>测试5</li>
-								<li>测试1</li>
-								<li>测试2</li>
-							</ul>
 						</div>
 					</div>
 				</div>
@@ -107,7 +216,7 @@
 					<p class="body_guide_title">
 						<span class="title_right2">&nbsp;</span>
 						招生简章
-						<a href="recruit.html" class="body_title_more">>>更多<span class="title_left2">&nbsp;</span></a>
+						<a href="recruit.jsp" class="body_title_more" target="_blank">>>更多<span class="title_left2">&nbsp;</span></a>
 						
 					</p>
 					<div class="body_guide_content"></div>
@@ -124,60 +233,36 @@
 			</div>
 			<!-- 底部 -->
 			<div id="food-main">
-				<div style="border: none;"><img src="images/20171221157738276.jpg" alt="" width="1000px"></div>
+				<div style="border: none;"><img src="images/20171221157738276.jpg" alt="" style="width:1000px;margin-top: 10px;margin-bottom: 5px;"></div>
 				<div style="overflow: hidden;">
 					<div id="foot_left">
 						<p id="pone">
 							<span  class="title_right">&nbsp;</span>
 							学习园地
-							<a href=""  class="body_title_more">>>更多<span class="title_left">&nbsp;</span></a>
+							<a href="culture.jsp?type=学习园地"  class="body_title_more" target="_blank">>>更多<span class="title_left">&nbsp;</span></a>
 						</p>
 						<div class="foot_left_content"></div>
-						<ul>
-							<li class="li">成都最好的铁路学校，都有哪些热门专业</li>
-							<li class="li">成都铁路学校，包含哪些专业</li>
-							<li class="li">成铁路学院欢迎家长实地考察</li>
-							<li class="li">旅客乘车时不能携带哪些物品</li>
-							<li class="li">成都铁路运输学院提供专业指导</li>
-							<li class="li">四川铁路学院热门专业更受欢迎</li>
-						</ul>
 					</div>
 					<div id="foot">
 						<p id="ptwo">
 							<span  class="body_major_title_title">校园文化</span>
-							<a href="" class="body_title_more">>>更多<span class="title_left">&nbsp;</span></a>
+							<a href="culture.jsp" class="body_title_more" target="_blank">>>更多<span class="title_left">&nbsp;</span></a>
 						</p>
 						<div class="foot_content"></div>
-						<ul>
-							<li class="li">成都铁路专业学校让你拥有更加专业的技能</li>
-							<li class="li">成都铁路学校让你实现高铁人员的梦想</li>
-							<li class="li">中国高铁速度有多快</li>
-							<li class="li">成都铁路学校地址在哪里</li>
-							<li class="li">工学结合，实践出真知</li>
-							<li class="li">2017年选成都铁路运输学校</li>
-						</ul>
 					</div>
 					<div id="foot-right">
 						<p id="pthree">
 							<span class="title_right2">&nbsp;</span>
 							招生问答
-							<a href="" class="body_title_more">>>更多<span class="title_left2">&nbsp;</span></a>
+							<a href="recruit.jsp?type=招生问答" target="_blank" class="body_title_more">>>更多<span class="title_left2">&nbsp;</span></a>
 						</p>
 						<div class="foot_right_content"></div>
-						<ul>
-							<li class="li">9.贵校毕业生就业情况如何</li>
-							<li class="li">8.贵校的普生教育平台是什么</li>
-							<li class="li">7.除毕业证书外，贵校还有些什么证书</li>
-							<li class="li">6.贵校的“N+1”模式</li>
-							<li class="li">5.贵校有怎样的育人模式</li>
-							<li class="li">4.学校的管理如何</li>
-						</ul>
 					</div>
 				</div>
 				<div class="foot_foot">
 					<p class="foot_title">
 						<span class="body_major_title_title">校园环境</span>
-						<a href="" class="body_title_more">>>更多<span class="title_left">&nbsp;</span></a>
+						<a href="environment.jsp" target="_blank" class="body_title_more">>>更多<span class="title_left">&nbsp;</span></a>
 					</p>
 					<div  class="div">
 						<ul id="ul" style="width: 2820px;">
@@ -260,7 +345,7 @@
 				<div style="width: 1000px">
 					<p class="body_guide_title">
 						<span class="title_right2">&nbsp;</span>
-						招生问答
+						友情链接
 						<span class="title_left2 float_right">&nbsp;</span>
 					</p>
 					<p class="help_link">
@@ -285,49 +370,115 @@
 			</div>
 		</div>
 	</div>
+
+
+	<div class="leftHangingbox">
+        <div class="count">
+            <div class="up"></div>
+            <div class="qqlist">
+                <div class="zixun">咨询电话</div>
+                <div class="tel"><strong>132</strong><strong>8180</strong><strong>6252</strong></div>
+                <div class="qqzixun">QQ在线咨询</div>
+                <div class="qqzixun1">在线咨询</div>
+                <div class="erweima">
+                    <img src="images/qrcode.jpg" alt="" />
+                </div>
+                <a href="javascript:void(0)" class="dianwo">点我报名</a>
+            </div>
+            <div class="down"></div>
+        </div>
+        <a href="javascript:void(0)" class="baoming lbaoming"></a>
+    </div>
+    <div class="rightHangingbox">
+        <div class="count" style="position:absolute;right:0px;">
+            <div class="up"></div>
+            <div class="qqlist">
+                <div class="zixun">在线报名</div>
+                <div class="qqlistname">
+                    <p><span>*</span>你的姓名:</p>
+                    <input type="text"  class="rightHangingboxaaa"/><span style="display:none">请输入姓名</span>
+                </div>
+                <div class="qqlistname">
+                    <p><span>*</span>联系电话:</p>
+                    <input type="text" class="rightHangingboxaaa" /><span style="display:none">请输入电话</span>
+                </div>
+                <div class="qqlistname" >
+                    <p><span>*</span>通信地址:</p>
+                    <input type="text" class="rightHangingboxaaa"/><span style="display:none">请输入地址</span>
+                </div>
+                <div class="qqlistname" >
+                    <p><span>*</span>意向专业:</p>
+                    <select name=""  class="rightHangingboxaaa">
+                        <option value="">请选择专业</option>
+                        <option value="高铁（和谐号）、动车乘务专业">高铁（和谐号）、动车乘务专业</option>
+                        <option value="铁路运输/客运专业">铁路运输/客运专业</option>
+                        <option value="铁道车辆运用与检修培养班"> 铁道车辆运用与检修培养班</option>
+                        <option value="航空地勤服务专业">航空地勤服务专业</option>
+                        <option value="航空空乘服务专业">航空空乘服务专业 </option>
+                        <option value="铁路轨道运输物流专业">铁路轨道运输物流专业</option>
+                    </select>
+                    <span style="display:none">请选择专业</span>
+                </div>
+                <div class="qqlistname">
+                    <p>其他说明:</p>
+                    <input type="text" class="qqlistname_input" />
+                </div>
+                <div class="qqlistname qqlistbtn">
+                    <input type="button" id="qqlistbtn"  value="提交申请"/>
+                </div>
+            </div>
+            <div class="down"></div>
+        </div>
+        <a href="javascript:void(0)" class="baoming rbaoming" id="baoming"></a>
+    </div>
+    <div class="boying">
+        <p>2018年春季高铁/铁路运输订单班招生面试已经开始，详询：13281806252请问有什么要咨询？</p>
+        <div class="x"></div>
+        <div class="zixun zixunone">稍后咨询</div>
+        <div class="zixun zixuntwo">现在咨询</div>
+    </div>
+    <form action="">
+        <div class="gaotiexi">
+            <div class="jian"></div>
+            <div class="top">请你留言</div>
+            <div class="top1">
+                <p>高铁系</p>
+                <p>13281806252</p>
+            </div>
+            <div class="top2">
+                <textarea name="" id="" cols="32" rows="7"placeholder="请在此输入留言内容，我们会尽快与您联系。（必填)"></textarea>
+            </div>
+            <div class="top3">
+                <input type="text" placeholder="姓名（必填）" />
+            </div>
+            <div class="top4">
+                <input type="text" placeholder="电话（必填）" />
+            </div>
+            <div class="top5">
+                <input type="text" placeholder="地址（必填）" />
+            </div>
+            <div class="top6">
+                <input type="text" placeholder="QQ（必填）" />
+            </div>
+            <div class="send"><input type="submit"  value="提交"/></div>
+        </div>
+        <div class="zuixiaohua">
+            <span>请你留言</span>
+            <div class="zuidahua"></div>
+        </div>
+        <div class="topleft">
+            <div class="topleft1">
+                <div class="topleft0"></div>
+            </div>
+            <div class="topleft2">
+                <div class="topleft21">
+                    <div class="topleft211"></div><span>高铁系宋老师</span>
+                </div>
+                <div class="topleft21">
+                    <div class="topleft211"></div><span>高铁系王老师</span>
+                </div>
+            </div>
+        </div>
+    </form>
 </body>
-<script type="text/javascript">
-	var scrollNum = 0;
-	function scroll(){
-		scrollNum = scrollNum <= -1165? 0 : scrollNum-1;
-		$(".body_major_content_article ul").css("margin-left",scrollNum+"px");
-	}
-	var time1 = setInterval(scroll,30);
-	$(".body_major_content_article").hover(function(){
-		clearInterval(time1);
-	},function(){
-		time1 = setInterval(scroll,30);
-	});
-	//下边无缝滚动
-	var num= 0;
-	function goleft(){
-		if (num<=-1880) {
-			num=0;
-		};
-		num-=1;
-		$("#ul").css("margin-left",num+"px");
-	}
-	var time = setInterval(goleft, 20)
-	$(".div").hover(function(){
-		clearInterval(time);
-	},function(){
-		time = setInterval(goleft,20);
-	});
-	
-	//学院概况
-	$.post("selectOneArticle.action",{"article.articleId":93},function(data){
-		$(".body_general_content").text(data.article.intro);
-	});
-	//新闻中心
-	$.post("selectTypeArticle.action",{"article.type.typeId":7},function(data){
-		var article = data.articleList;
-		console.log(data);
-		var str = "<ul>";
-		for(var i = 0;i < 6;i++){
-			str+="<li>"+article[i].title+"</li>"
-		}
-		str+="</ul>";
-		$(".body_news_content_article").html(str);
-	})
-</script>
 </html>

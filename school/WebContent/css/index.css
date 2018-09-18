@@ -65,7 +65,6 @@ body{
 }
 .body_job_flash{
 	height: 120px;
-	background-color: #f4f3f3;
 }
 .body_left,.body_center,.body_right,#foot_left,#foot,.body_news_flash,.body_news_content_article,#foot-right{
 	float:left;
@@ -97,7 +96,6 @@ body{
 .body_news_flash{
 	height: 200px;
 	width:200px;
-	background-color: #f4f3f3;
 }
 .body_major_content{
 	height: 240px;
@@ -154,7 +152,7 @@ body{
 	margin-top: 10px;
 	list-style: none;
 	width: 150px;
-	height: 35px;
+	height: 34px;
 	line-height: 31px;
 }
 .contact_us ul a{
@@ -233,7 +231,6 @@ body{
     width:1004px;
     height:90px;
     margin:0px auto;
-    /* border:1px solid red; */
     padding:20px 0px 20px 0px;
 }
 .logoleft{
@@ -245,7 +242,6 @@ body{
 .daohang{
     width:1004px;
     height:40.8px;
-   /*  border:1px solid red; */
     margin:0px auto;
     background:url(../images/navbg.jpg) repeat-x;
 }
@@ -256,7 +252,6 @@ body{
 .daohang ul li{
     width:108px;
     height:40px;
-    /* border:1px solid red; */
     background:url(../images/navge.jpg) no-repeat 0 0;
     float: left;
     text-align: center;
@@ -284,7 +279,6 @@ body{
     height: 350px;
     margin:0px auto;
     padding:5px 5px 0px 5px;
-    /* border:1px solid red;  */
     background:#fff;
     position: relative;
      overflow: hidden;
@@ -320,7 +314,6 @@ body{
 .notice{
     width:964px;
     height:28px;
-    /* border:1px solid red; */
     margin:0px auto;
     background:url(../images/noticebg.jpg) no-repeat;
     padding:0px 20px 0px 20px;
@@ -328,7 +321,6 @@ body{
 .gonggao{
     width:70px;
     height:28px;
-    /* border:1px solid red; */
     color: #0554b0;
     font-weight: bold;
     font-size:12px; 
@@ -354,19 +346,86 @@ body{
 .daohangul li,#lunbo li{
 	list-style: none;
 }
-.body_news_content_article{
-	width: 260px;
-}
 
-.body_news_content_article ul li{
-	font-size: 12px;
-	/*display:inline-block;*/
-	width:260px;
-	color:#115970;
-	overflow: hidden;
-	list-style: square;
+/*内容样式*/
+.body_news_content_article,.body_job_content_article,.body_guide_content,.foot_left_content,.foot_content,.foot_right_content{
+	padding-left:5px;
+	width: 260px;
+	overflow:hidden;
 }
-.body_news_content_article ul a{
+.body_news_content_article ul,.body_job_content_article ul,.body_guide_content ul,.foot_left_content ul,.foot_content ul,.foot_right_content ul{
+	font-size:12px;
+}
+.body_news_content_article ul li,.body_job_content_article ul li,.body_guide_content ul li,.foot_left_content ul li,.foot_content ul li,.foot_right_content ul li{
+	line-height:32px;
+	height: 32px;
+	overflow:hidden;
+	font-size: 12px;
+	color:#115970;
+	text-indent:15px;
+	border-bottom:dotted 1px #c7c7c7;
+	background: url(../images/li.jpg) no-repeat 4px 14px;
+	background-size:4px;
+}
+.body_news_content_article ul a,.body_job_content_article ul a,.body_guide_content ul a,.foot_left_content ul a,.foot_content ul a,.foot_right_content ul a{
 	color: #115970;
 	text-decoration: none;
+}
+.body_news_content_article ul a:hover,.body_major_content_article ul li p:hover,.body_job_content_article ul a:hover,.body_guide_content ul a:hover,.foot_left_content ul a:hover,.foot_content ul a:hover,.foot_right_content ul a:hover{
+	color:red;
+}
+/*铁路就业高度*/
+.body_job_content_article ul li{
+	width:225px;
+	line-height:27px;
+	height: 27px;
+}
+/*招生简章*/
+.body_guide_content{
+	width:232px;
+	height:290px;
+}
+/*学习园地*/
+.foot_left_content,.foot_right_content{
+	width:232px;
+}
+/*校园文化*/
+.foot_content{
+	width:468px;
+}
+/*专业设置*/
+.body_major_content_article ul li{
+	text-align:center;
+	height:240px;
+	background:none;
+}
+.body_major_content_article a{
+	color: #115970;
+	text-decoration: none;
+}
+.body_major_content_article{
+	width:460px;
+}
+.body_major_content_article li div{
+	width:188px;
+	padding:5px;
+	border:1px solid #ccc;
+	margin: 0 auto;
+	padding-bottom:0;
+	text-align:center;
+}
+.body_major_content_article a p:nth-child(1){
+	text-align:center;
+	font-size: 14px;
+	width: 170px;
+	height: 20px;
+	margin:0 auto;
+	overflow:hidden;
+}
+.body_major_content_article a p:nth-child(3){
+	height:85px;
+	width:200px;
+	margin: 0 auto;
+	font-size: 16px;
+	overflow:hidden;
 }

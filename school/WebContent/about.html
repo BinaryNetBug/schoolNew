@@ -2,10 +2,24 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>学校概况</title>
+	<title>学校简介|成都高铁专业招生网</title>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/carousel.js"></script>
 	<link rel="stylesheet" href="css/others.css">
+	<link rel="stylesheet" href="css/float.css">
+	<script type="text/javascript" src="js/float.js"></script>
+	<script type="text/javascript" src="js/change.js"></script>
+	<script type="text/javascript">
+		function selectArticle(id){
+	        $.post('selectTypeArticle.action?article.type.typeId='+id, function(data) {
+                $(".body_right_content").html(data.articleList[0].context);
+                changeHeight();
+	        });
+		}
+		$(function(){
+			selectArticle(3);
+		})
+	</script>
 </head>
 <body>
 	<div class="top">
@@ -17,11 +31,11 @@
             <ul class="daohangul">
                 <li><a href="index.html">学校首页</a></li>
                 <li><a href="about.html">学校概况</a></li>
-                <li><a href="news.html">学校新闻</a></li>
-                <li><a href="major.html">专业设置</a></li>
-                <li><a href="job.html">招生就业</a></li>
-                <li><a href="culture.html">校园文化</a></li>
-                <li><a href="environment.html">校园环境</a></li>
+                <li><a href="news.jsp">学校新闻</a></li>
+                <li><a href="major.jsp">专业设置</a></li>
+                <li><a href="job.jsp">招生就业</a></li>
+                <li><a href="culture.jsp">校园文化</a></li>
+                <li><a href="environment.jsp">校园环境</a></li>
                 <li><a href="message.html">报名留言</a></li>
                 <li><a href="callWe.html">联系我们</a></li>
             </ul>
@@ -30,10 +44,10 @@
 		<div class="body">
 	        <div id="lunbo">
 	            <ul class="luoboimg">
-	                <li><a href=""><img src="images/20171221121441115.jpg" alt=""/></a></li>
-	                <li><a href=""><img src="images/201792416555364889.jpg" alt=""/></a></li>
-	                <li><a href=""><img src="images/2017924165451208390.jpg" alt=""/></a></li>
-	                <li><a href=""><img src="images/2017924165430161836.jpg" alt=""/></a></li>
+	                <li><a href="javascript:void(0)"><img src="images/20171221121441115.jpg" alt=""/></a></li>
+	                <li><a href="javascript:void(0)"><img src="images/201792416555364889.jpg" alt=""/></a></li>
+	                <li><a href="javascript:void(0)"><img src="images/2017924165451208390.jpg" alt=""/></a></li>
+	                <li><a href="javascript:void(0)"><img src="images/2017924165430161836.jpg" alt=""/></a></li>
 	            </ul>
 	            <ul class="lunbodaohang">
 	                <li class="shownumber color"></li>
@@ -49,10 +63,10 @@
 			<div class="body_left">
 				<div class="body_left_menu">
 					<p class="body_left_menu_title">学校概况</p>
-					<p><a href="" class="body_left_menu_content">学校简介</a></p>
-					<p><a href="" class="body_left_menu_content">师资力量</a></p>
-					<p><a href="" class="body_left_menu_content">办学优势</a></p>
-					<p><a href="" class="body_left_menu_content">办学理念</a></p>
+					<p><a href="javascript:selectArticle(3)" class="body_left_menu_content">学校简介</a></p>
+					<p><a href="javascript:selectArticle(4)" class="body_left_menu_content">师资力量</a></p>
+					<p><a href="javascript:selectArticle(5)" class="body_left_menu_content">办学优势</a></p>
+					<p><a href="javascript:selectArticle(6)" class="body_left_menu_content">办学理念</a></p>
 					<p class="body_left_menu_title">联系我们</p>
 					<div class="contact_us">
 						<ul>
@@ -70,11 +84,11 @@
 			</div>
 			<div class="body_right">
 				<p class="body_right_navigation">
-					<span><a href="">首页</a></span> >
-					<span><a href="">学校概况</a></span> >
+					<span><a href="javascript:void(0)">首页</a></span> >
+					<span><a href="javascript:void(0)">学校概况</a></span> >
 					<span class="body_right_navigation_now">学校简介</span>
 				</p>
-				<iframe src="" frameborder="0" id="body_right_content" style="width: 741px;"></iframe>
+				<div class="body_right_content" style="padding:30px 0;"></div>
 			</div>
 			<div style="width: 1000px; background-color: #EAEAEA;padding: 15px 0; margin: 0;float: left;">
 				<p style="text-align: center;font-size: 12px; line-height: 25px;" >
@@ -89,5 +103,115 @@
 			</div>
 		</div>
     </div>
+    
+    
+    <div class="leftHangingbox">
+        <div class="count">
+            <div class="up"></div>
+            <div class="qqlist">
+                <div class="zixun">咨询电话</div>
+                <div class="tel"><strong>132</strong><strong>8180</strong><strong>6252</strong></div>
+                <div class="qqzixun">QQ在线咨询</div>
+                <div class="qqzixun1">在线咨询</div>
+                <div class="erweima">
+                    <img src="images/qrcode.jpg" alt="" />
+                </div>
+                <a href="javascript:void(0)" class="dianwo">点我报名</a>
+            </div>
+            <div class="down"></div>
+        </div>
+        <a href="javascript:void(0)" class="baoming lbaoming"></a>
+    </div>
+    <div class="rightHangingbox">
+        <div class="count" style="position:absolute;right:0px;">
+            <div class="up"></div>
+            <div class="qqlist">
+                <div class="zixun">在线报名</div>
+                <div class="qqlistname">
+                    <p><span>*</span>你的姓名:</p>
+                    <input type="text"  class="rightHangingboxaaa"/><span style="display:none">请输入姓名</span>
+                </div>
+                <div class="qqlistname">
+                    <p><span>*</span>联系电话:</p>
+                    <input type="text" class="rightHangingboxaaa" /><span style="display:none">请输入电话</span>
+                </div>
+                <div class="qqlistname" >
+                    <p><span>*</span>通信地址:</p>
+                    <input type="text" class="rightHangingboxaaa"/><span style="display:none">请输入地址</span>
+                </div>
+                <div class="qqlistname" >
+                    <p><span>*</span>意向专业:</p>
+                    <select name=""  class="rightHangingboxaaa">
+                        <option value="">请选择专业</option>
+                        <option value="高铁（和谐号）、动车乘务专业">高铁（和谐号）、动车乘务专业</option>
+                        <option value="铁路运输/客运专业">铁路运输/客运专业</option>
+                        <option value="铁道车辆运用与检修培养班"> 铁道车辆运用与检修培养班</option>
+                        <option value="航空地勤服务专业">航空地勤服务专业</option>
+                        <option value="航空空乘服务专业">航空空乘服务专业 </option>
+                        <option value="铁路轨道运输物流专业">铁路轨道运输物流专业</option>
+                    </select>
+                    <span style="display:none">请选择专业</span>
+                </div>
+                <div class="qqlistname">
+                    <p>其他说明:</p>
+                    <input type="text" class="qqlistname_input" />
+                </div>
+                <div class="qqlistname qqlistbtn">
+                    <input type="button" id="qqlistbtn"  value="提交申请"/>
+                </div>
+            </div>
+            <div class="down"></div>
+        </div>
+        <a href="javascript:void(0)" class="baoming rbaoming" id="baoming"></a>
+    </div>
+    <div class="boying">
+        <p>2018年春季高铁/铁路运输订单班招生面试已经开始，详询：13281806252请问有什么要咨询？</p>
+        <div class="x"></div>
+        <div class="zixun zixunone">稍后咨询</div>
+        <div class="zixun zixuntwo">现在咨询</div>
+    </div>
+    <form action="">
+        <div class="gaotiexi">
+            <div class="jian"></div>
+            <div class="top">请你留言</div>
+            <div class="top1">
+                <p>高铁系</p>
+                <p>13281806252</p>
+            </div>
+            <div class="top2">
+                <textarea name="" id="" cols="32" rows="7"placeholder="请在此输入留言内容，我们会尽快与您联系。（必填)"></textarea>
+            </div>
+            <div class="top3">
+                <input type="text" placeholder="姓名（必填）" />
+            </div>
+            <div class="top4">
+                <input type="text" placeholder="电话（必填）" />
+            </div>
+            <div class="top5">
+                <input type="text" placeholder="地址（必填）" />
+            </div>
+            <div class="top6">
+                <input type="text" placeholder="QQ（必填）" />
+            </div>
+            <div class="send"><input type="submit"  value="提交"/></div>
+        </div>
+        <div class="zuixiaohua">
+            <span>请你留言</span>
+            <div class="zuidahua"></div>
+        </div>
+        <div class="topleft">
+            <div class="topleft1">
+                <div class="topleft0"></div>
+            </div>
+            <div class="topleft2">
+                <div class="topleft21">
+                    <div class="topleft211"></div><span>高铁系宋老师</span>
+                </div>
+                <div class="topleft21">
+                    <div class="topleft211"></div><span>高铁系王老师</span>
+                </div>
+            </div>
+        </div>
+    </form>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		  $("#btn").click(function(event) {
+            var a = $(".name").val();
+            var b =$(".password").val();
+            $.get('loginAdmin.action',{"admin.adminName":a,"admin.password":b}, function(data) {
+            	console.log(data);
+                if(data.loginFlag=="1"){
+                	alert("登陆成功");
+                	location.href="index.jsp";
+                }else{
+                	alert("登陆失败，用户名或密码错误用户未激活");
+                }
+                
+            });
+          });
+	})
+</script>
+<body>
+        <p>用户名:<input type="text" class="name" name="admin.adminName" value="" placeholder=""></p>
+        <p>密码:<input type="text" class="password" name="admin.password" value="" placeholder=""></p>
+        <p><input type="button"  id="btn" value="登录" /></p>
+</body> 
+</html>

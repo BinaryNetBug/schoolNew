@@ -81,7 +81,7 @@ public class TypeAction extends ActionSupport{
 			this.typeList = this.typeService.selectType();
 			return SUCCESS;
 		}
-		public String selectTypeOne(){
+		public String selectOneType(){
 			this.type = this.typeService.selectType(this.type.getTypeId());
 			return SUCCESS;
 		}
